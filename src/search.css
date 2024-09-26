@@ -1,0 +1,57 @@
+/* Container for the search bar */
+.search-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0;
+    padding: 20px 0; /* Add padding to give some space around the search bar */
+    position: fixed; /* Fixes the search bar at the top */
+    top: 0; /* Aligns the container to the top of the page */
+    left: 0; /* Aligns the container to the left edge */
+    background-color: white; /* Set background color for visibility */
+    z-index: 100; /* Ensures the search bar stays on top of other content */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+.search-container form {
+    display: flex;
+    justify-content: center;
+    width: 400px;
+}
+
+/* Styling for the search input field */
+.search-container input[type="text"] {
+    padding: 10px 15px;
+    font-size: 1em;
+    border-radius: 25px 0 0 25px;
+    border: 2px solid #5b2ecc;
+    outline: none;
+    transition: border-color 0.3s ease;
+    width: 100%;
+}
+
+.search-container input[type="text"]:focus {
+    border-color: #4521a9;
+}
+
+/* Styling for the search button */
+.search-container button {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #5b2ecc;
+    color: white;
+    border: 2px solid #5b2ecc;
+    border-radius: 0 25px 25px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.search-container button:hover {
+    background-color: #4521a9;
+    border-color: #4521a9;
+}
+
+/* Adds some margin to the rest of the content to avoid overlap with the fixed search bar */
+.body-content {
+    margin-top: 100px; /* Adds enough space for the fixed search bar */
+}
