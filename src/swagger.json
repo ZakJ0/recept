@@ -1,0 +1,449 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Recept API",
+    "version": "1.0.0",
+    "description": "API för hantering av recept."
+  },
+  "servers": [
+    {
+      "url": "https://recept7-famul.reky.se"
+    }
+  ],
+  "paths": {
+    "/recipes": {
+      "get": {
+        "summary": "Hämtar alla recept",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "(Valfritt) Sökterm för recept"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "En lista av recept",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "title": "Toast skagen",
+                    "description": "Gott till champagne",
+                    "ratings": [],
+                    "imageUrl": "https://assets.icanet.se/e_sharpen:80,q_auto,dpr_1.25,w_718,h_718,c_lfill/imagevaultfiles/id_223427/cf_259/korvstroganoff_med_ris.jpg",
+                    "timeInMins": 15,
+                    "price": 150,
+                    "categories": [
+                      "Förrätt",
+                      "Skaldjur",
+                      "Smaskigt"
+                    ],
+                    "instructions": [
+                      "Stek brödet",
+                      "Lägg på röran",
+                      "Toppa med Dill"
+                    ],
+                    "ingredients": [
+                      {
+                        "name": "Salt",
+                        "amount": 1,
+                        "unit": "tsk"
+                      },
+                      {
+                        "name": "Peppar",
+                        "amount": 1,
+                        "unit": "tsk"
+                      },
+                      {
+                        "name": "Smör",
+                        "amount": 100,
+                        "unit": "gram"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Lägger till ett nytt recept",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Recipe"
+              },
+              "example": {
+                "title": "Toast skagen",
+                "description": "Gott till champagne",
+                "ratings": [],
+                "imageUrl": "https://assets.icanet.se/e_sharpen:80,q_auto,dpr_1.25,w_718,h_718,c_lfill/imagevaultfiles/id_223427/cf_259/korvstroganoff_med_ris.jpg",
+                "timeInMins": 15,
+                "price": 150,
+                "categories": [
+                  "Förrätt",
+                  "Skaldjur",
+                  "Smaskigt"
+                ],
+                "instructions": [
+                  "Stek brödet",
+                  "Lägg på röran",
+                  "Toppa med Dill"
+                ],
+                "ingredients": [
+                  {
+                    "name": "Salt",
+                    "amount": 1,
+                    "unit": "tsk"
+                  },
+                  {
+                    "name": "Peppar",
+                    "amount": 1,
+                    "unit": "tsk"
+                  },
+                  {
+                    "name": "Smör",
+                    "amount": 100,
+                    "unit": "gram"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Nytt recept skapat"
+          }
+        }
+      }
+    },
+    "/recipes/{recipeId}": {
+      "get": {
+        "summary": "Hämtar ett enskilt recept",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "recipeId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ett recept",
+            "content": {
+              "application/json": {
+                "example": {
+                  "title": "Toast skagen",
+                  "description": "Gott till champagne",
+                  "ratings": [],
+                  "imageUrl": "https://assets.icanet.se/e_sharpen:80,q_auto,dpr_1.25,w_718,h_718,c_lfill/imagevaultfiles/id_223427/cf_259/korvstroganoff_med_ris.jpg",
+                  "timeInMins": 15,
+                  "price": 150,
+                  "categories": [
+                    "Förrätt",
+                    "Skaldjur",
+                    "Smaskigt"
+                  ],
+                  "instructions": [
+                    "Stek brödet",
+                    "Lägg på röran",
+                    "Toppa med Dill"
+                  ],
+                  "ingredients": [
+                    {
+                      "name": "Salt",
+                      "amount": 1,
+                      "unit": "tsk"
+                    },
+                    {
+                      "name": "Peppar",
+                      "amount": 1,
+                      "unit": "tsk"
+                    },
+                    {
+                      "name": "Smör",
+                      "amount": 100,
+                      "unit": "gram"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Tar bort ett recept",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "recipeId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Recept raderat"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Uppdaterar ett recept",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "recipeId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "description": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Recept uppdaterat"
+          }
+        }
+      }
+    },
+    "/recipes/{recipeId}/ratings": {
+      "post": {
+        "summary": "Lägger till ett omdöme för ett recept",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "recipeId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "rating": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Omdöme tillagt"
+          }
+        }
+      }
+    },
+    "/recipes/{recipeId}/comments": {
+      "get": {
+        "summary": "Hämtar alla kommentarer för ett recept",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "recipeId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "En lista av kommentarer"
+          }
+        }
+      },
+      "post": {
+        "summary": "Lägger till en kommentar för ett recept",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "recipeId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "comment": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Kommentar tillagd"
+          }
+        }
+      }
+    },
+    "/categories": {
+      "get": {
+        "summary": "Hämtar alla kategorier",
+        "responses": {
+          "200": {
+            "description": "En lista av kategorier"
+          }
+        }
+      }
+    },
+    "/categories/{categoryName}/recipes": {
+      "get": {
+        "summary": "Hämtar alla recept i en viss kategori",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "categoryName",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "En lista av recept i angiven kategori"
+          }
+        }
+      }
+    },
+    "/clear": {
+      "get": {
+        "summary": "Tömmer api:et på all data",
+        "responses": {
+          "200": {
+            "description": "API:et är tomt"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Recipe": {
+        "type": "object",
+        "required": [
+          "title",
+          "description",
+          "imageUrl",
+          "timeInMins",
+          "categories",
+          "instructions",
+          "ingredients",
+          "price"
+        ],
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "ratings": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          },
+          "imageUrl": {
+            "type": "string"
+          },
+          "timeInMins": {
+            "type": "integer"
+          },
+          "categories": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "instructions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "price": {
+            "type": "number"
+          },
+          "ingredients": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Ingredient"
+            }
+          }
+        }
+      },
+      "Ingredient": {
+        "type": "object",
+        "required": [
+          "name",
+          "amount",
+          "unit"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "amount": {
+            "type": "integer"
+          },
+          "unit": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
+
