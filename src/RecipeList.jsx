@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 
-const RecipeList = () => {
+const RecipeList = ({ searchQuery }) => {
     const [recipes, setRecipes] = useState([]); // State to hold the recipes
     const [loading, setLoading] = useState(true); // State to manage loading status
     const [error, setError] = useState(null); // State for error handling
 
-    // Fetch data from the API when the component mounts
     useEffect(() => {
         const fetchRecipes = async () => {
             try {
@@ -14,7 +13,16 @@ const RecipeList = () => {
                     throw new Error('Failed to fetch recipes');
                 }
                 const data = await response.json();
-                setRecipes(data); // Set the fetched data to state
+
+                // Filter recipes if searchQuery is provided
+                const filteredRecipes = searchQuery
+                    ? data.filter(recipe =>
+                        recipe.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                        recipe.categories.some(category => category.toLowerCase().includes(searchQuery.toLowerCase()))
+                    )
+                    : data;
+
+                setRecipes(filteredRecipes); // Set the filtered data
             } catch (err) {
                 setError(err.message);
             } finally {
@@ -23,39 +31,37 @@ const RecipeList = () => {
         };
 
         fetchRecipes();
-    }, []); // Empty dependency array means this runs once when the component mounts
+    }, [searchQuery]); // Re-fetch the data if searchQuery changes
 
     // Render loading, error, or data
     if (loading) {
-        return <p>Loading...</p>;
+        return <p>Laddar...</p>;
     }
 
     if (error) {
-        return <p>Error: {error}</p>;
+        return <p>Fel: {error}</p>;
     }
 
     return (
         <div>
-            <h1>Recipes</h1>
+            <h1>Recept</h1>
             <ul>
                 {recipes.map((recipe) => (
                     <li key={recipe.id}>
                         <h2>{recipe.title}</h2>
                         <p>{recipe.description}</p>
                         <img src={recipe.imageUrl} alt={recipe.title} width="200" />
-                        <p>Time: {recipe.timeInMins} minutes</p>
-                        <p>Price: {recipe.price} SEK</p>
+                        <p>Tid: {recipe.timeInMins} minuter</p>
+                        <p>Pris: {recipe.price} SEK</p>
 
-                        {/* Categories Section */}
-                        <h4>Categories:</h4>
+                        <h4>Kategorier:</h4>
                         <ul>
                             {recipe.categories.map((category, index) => (
                                 <li key={index}>{category}</li>
                             ))}
                         </ul>
 
-                        {/* Ingredients Section */}
-                        <h4>Ingredients: 1 portion</h4>
+                        <h4>Ingredienser:</h4>
                         <ul>
                             {recipe.ingredients.map((ingredient, index) => (
                                 <li key={index}>
@@ -64,8 +70,7 @@ const RecipeList = () => {
                             ))}
                         </ul>
 
-                        {/* Instructions Section */}
-                        <h4>Instructions:</h4>
+                        <h4>Instruktioner:</h4>
                         <ol>
                             {recipe.instructions.map((instruction, index) => (
                                 <li key={index}>{instruction}</li>

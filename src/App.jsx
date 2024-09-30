@@ -1,17 +1,23 @@
-
-import './App.css'
-//import React from 'react';
+import React, { useState } from 'react';
+import './App.css';
 import SearchBar from './SearchBar'; // Import the SearchBar component
-import RecipeList from "./RecipeList.jsx";
+import RecipeList from './RecipeList'; // Import the RecipeList component
 
 function App() {
+    const [searchQuery, setSearchQuery] = useState(''); // State to hold the search query
+
+    const handleSearch = (query) => {
+        setSearchQuery(query); // Update the search query when the user searches
+    };
+
     return (
         <div>
             <h1>Välkommen till receptsidan</h1>
-            <SearchBar /> {/* Use the SearchBar component */}
-            <RecipeList></RecipeList>
+            <SearchBar onSearch={handleSearch} /> {/* Pass the search handler to SearchBar */}
+            <RecipeList searchQuery={searchQuery} /> {/* Pass the search query to RecipeList */}
         </div>
     );
 }
 
 export default App;
+
