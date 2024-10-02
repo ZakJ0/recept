@@ -1,0 +1,81 @@
+/* Recipe List */
+.recipe-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.recipe {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #ecf0f1;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.recipe:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.recipe img {
+    width: 100%;
+    height: 200px;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.recipe-content {
+    flex-grow: 1;
+}
+
+.recipe h2 {
+    margin-bottom: 10px;
+}
+
+.recipe p {
+    font-size: 1.1rem;
+    color: #2c3e50;
+}
+
+/* Rating Section */
+.rating {
+    display: flex;
+    margin-top: 10px;
+}
+
+.star {
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #ddd;
+    transition: color 0.2s ease-in-out;
+}
+
+.star.filled {
+    color: #f39c12; /* Gold color for filled stars */
+}
+
+.star:hover {
+    color: #f39c12;
+}
+
+/* Details Section */
+.details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    background-color: #3498db;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.details span {
+    font-size: 1rem;
+}

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
-import SearchBar from './SearchBar'; // Import the SearchBar component
-import RecipeList from './RecipeList'; // Import the RecipeList component
+import SearchBar from './components/SearchBar/SearchBar.jsx'; // Import the SearchBar component
+import RecipeList from './components/reciepeList/RecipeList.jsx'; // Import the RecipeList component
 
 function App() {
     const [searchQuery, setSearchQuery] = useState(''); // State to hold the search query
