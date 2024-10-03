@@ -1,0 +1,44 @@
+header {
+    background-color: gray;
+    color: rgb(226, 123, 63);
+    text-align: left;
+    margin: 8px;
+    padding: 8px;
+    border-radius: 1rem;
+    overflow: visible;
+    min-height: 100px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+}
+
+#headerimg {
+    display: flex;
+    align-items: center;
+    margin: 8px;
+    padding: 8px;
+    flex-wrap: nowrap;
+    max-width: 100px;
+    max-height: 100px;
+    border-radius: 3rem;
+}
+
+#headimg {
+    height: 100px;
+    border-radius: 5rem;
+    margin: 8px;
+    padding: 8px;
+    flex-shrink: 1;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+    padding: 0;
+    flex-shrink: 1;
+    flex-grow: 1;
+    font-size: 5vw;
+    white-space: nowrap;
+    overflow: visible;
+    text-overflow: ellipsis;
+}
