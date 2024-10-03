@@ -1,15 +1,12 @@
 /* Container for the search bar */
 .search-container {
     display: flex;
-    justify-content: center;
-    width: 100%;
-    margin: 0;
-    padding: 20px 0; /* Add padding to give some space around the search bar */
-    position: fixed; /* Fixes the search bar at the top */
-    top: 0; /* Aligns the container to the top of the page */
-    left: 0; /* Aligns the container to the left edge */
+    justify-content: right;
+    width: calc(100% - 32px);
+    margin: 8px;
+    padding: 20px; /* Add padding to give some space around the search bar */
     background-color: white; /* Set background color for visibility */
-    z-index: 100; /* Ensures the search bar stays on top of other content */
+    box-sizing: border-box;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
 }
 
@@ -24,23 +21,23 @@
     padding: 10px 15px;
     font-size: 1em;
     border-radius: 25px 0 0 25px;
-    border: 2px solid #5b2ecc;
+    border: 2px solid gray;
     outline: none;
     transition: border-color 0.3s ease;
     width: 100%;
 }
 
 .search-container input[type="text"]:focus {
-    border-color: #4521a9;
+    border-color: gray;
 }
 
 /* Styling for the search button */
 .search-container button {
     padding: 10px 20px;
     font-size: 1em;
-    background-color: #5b2ecc;
+    background-color: gray;
     color: white;
-    border: 2px solid #5b2ecc;
+    border: 2px solid gray;
     border-radius: 0 25px 25px 0;
     cursor: pointer;
     transition: background-color 0.3s ease, border-color 0.3s ease;
