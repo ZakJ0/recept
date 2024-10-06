@@ -16,17 +16,10 @@ function App() {
     };
     return (
         <div>
-            <h1>Välkommen till receptsidan</h1>
+            <Header/>
             <SearchBar onSearch={handleSearch}/> {/* Pass the search handler to SearchBar */}
             <RecipeList searchQuery={searchQuery}/> {/* Pass the search query to RecipeList */}
 
-        <Header/>
-
-        <div className='container'>
-            <ItemContainer/>
-            <ItemContainer/>
-            <ItemContainer/>
-        </div>
     </div>
 )
     ;
