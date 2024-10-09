@@ -1,0 +1,78 @@
+/* Recipe Details Modal Styles */
+.recipe-details {
+    position: fixed; /* Position it fixed to the viewport */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust to center */
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: white; /* White background for contrast */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000; /* Ensure it's above other elements */
+    max-width: 600px; /* Limit the width */
+    width: 90%; /* Make it responsive */
+    overflow-y: auto; /* Allow scrolling if content is too long */
+    max-height: 80vh; /* Limit height for large content */
+}
+
+/* Overlay Styles */
+.overlay {
+    position: fixed; /* Position it fixed to cover the whole viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    z-index: 999; /* Below the modal but above other content */
+}
+
+.recipe-details img {
+    max-width: 100%; /* Adjust the maximum width as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 15px; /* Space below the image */
+}
+
+.close-button {
+    background: transparent; /* No background */
+    border: none; /* Remove border */
+    color: #ff0000; /* Red color for the close button */
+    font-size: 24px; /* Font size for the close icon */
+    position: absolute; /* Position it absolutely within the details box */
+    top: 10px; /* Distance from the top */
+    right: 10px; /* Distance from the right */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.close-button:hover {
+    color: #b30000; /* Darker red on hover */
+}
+
+h3 {
+    margin-top: 15px; /* Add margin above headings */
+}
+
+ul {
+    list-style-type: disc; /* Default bullet point style */
+    padding-left: 20px; /* Indent the list items */
+}
+
+.details-container {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space between the two sections */
+    margin-top: 20px; /* Space above the details section */
+}
+
+/* Styles for individual sections within the details */
+.ingredients, .instructions {
+    flex: 1; /* Make both sections take equal space */
+    margin-right: 10px; /* Space between sections */
+}
+
+.instructions {
+    margin-right: 0; /* Remove margin for the last section */
+}
+
+.ingredients h3, .instructions h3 {
+    margin-top: 0; /* Remove default margin */
+}
