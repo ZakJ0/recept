@@ -1,6 +1,6 @@
 import React from 'react';
 import './RecipeCard.css';
-import Rating from "../rating/rating.jsx";
+import Rating from "../rating/Rating.jsx";
 import DifficultyLevel from "../difficultyLevel/DifficultyLevel.jsx";
 // Component for individual recipe card
 const RecipeCard = ({ recipe, showRecipeDetails }) => (
