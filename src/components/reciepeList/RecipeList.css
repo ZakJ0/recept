@@ -1,7 +1,7 @@
 /* Recipe List */
 .recipe-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid */
     gap: 20px;
     padding: 20px;
 }
@@ -43,25 +43,55 @@
     color: #2c3e50;
 }
 
-/* Rating Section */
-.rating {
-    display: flex;
-    margin-top: 10px;
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .recipe-list {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjust column size for tablets */
+    }
 }
 
-.star {
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: #ddd;
-    transition: color 0.2s ease-in-out;
+@media (max-width: 768px) {
+    .recipe-list {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Further reduce column size for smaller screens */
+    }
+
+    .recipe {
+        padding: 15px; /* Adjust padding for smaller screens */
+    }
+
+    .recipe img {
+        height: 150px; /* Reduce image height */
+    }
+
+    .recipe h2 {
+        font-size: 1.3rem; /* Adjust title size for readability */
+    }
+
+    .recipe p {
+        font-size: 1rem; /* Adjust paragraph font size */
+    }
 }
 
-.star.filled {
-    color: #f39c12; /* Gold color for filled stars */
-}
+@media (max-width: 480px) {
+    .recipe-list {
+        grid-template-columns: 1fr; /* Single column layout on very small screens */
+    }
 
-.star:hover {
-    color: #f39c12;
+    .recipe img {
+        height: 120px; /* Further reduce image height for mobile */
+    }
+
+    .recipe {
+        padding: 10px; /* Reduce padding for mobile */
+    }
+
+    .recipe h2 {
+        font-size: 1.2rem; /* Slightly smaller title size on mobile */
+    }
+
+    .recipe p {
+        font-size: 0.9rem; /* Smaller paragraph font size */
+    }
 }
 
 /* Details Section */
@@ -78,4 +108,16 @@
 
 .details span {
     font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    .details {
+        flex-direction: column; /* Stack details content vertically on smaller screens */
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .details span {
+        font-size: 0.9rem; /* Adjust text size */
+    }
 }

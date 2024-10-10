@@ -1,0 +1,21 @@
+.difficulty {
+    display: flex;
+    align-items: center;
+}
+
+.difficulty-image {
+    width: 12px; /* Make the image smaller */
+    height: auto;
+}
+
+@media (min-width: 768px) {
+    .difficulty-image {
+        width: 14px; /* Slightly larger image for medium screens */
+    }
+}
+
+@media (min-width: 1024px) {
+    .difficulty-image {
+        width: 16px; /* Larger image for very large screens */
+    }
+}
