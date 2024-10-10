@@ -1,0 +1,35 @@
+/* Rating and Difficulty Section Styling */
+.rating-difficulty-section {
+    display: flex;
+    align-items: center; /* Align rating stars and difficulty vertically */
+    gap: 10px;
+}
+
+.star {
+    font-size: 1.5rem;
+    color: #ddd;
+    transition: color 0.2s ease-in-out;
+}
+
+.star.filled {
+    color: #f39c12;
+}
+
+.star:hover {
+    color: #f39c12;
+}
+
+.details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    background-color: #3498db;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.details span {
+    font-size: 1rem;
+}

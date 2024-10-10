@@ -2,6 +2,9 @@
 import React from 'react';
 import './RecipeDetail.css'; // Import the CSS file for styling the recipe details
 import DifficultyLevel from '../difficultyLevel/DifficultyLevel.jsx';
+import Rating from '../rating/Rating.jsx';
+
+
 
 const RecipeDetail = ({ selectedRecipe, closeDetails, ratings, handleRating }) => {
     if (!selectedRecipe) return null;
@@ -10,9 +13,10 @@ const RecipeDetail = ({ selectedRecipe, closeDetails, ratings, handleRating }) =
         <>
             <div className="overlay" onClick={closeDetails} /> {/* Close modal on overlay click */}
             <div className="recipe-details">
-                <button className="close-button" onClick={closeDetails}>✖</button> {/* Close button */}
+                <button className="close-button" onClick={closeDetails}>✖</button>
+                {/* Close button */}
                 <h2>{selectedRecipe.title}</h2>
-                <img src={selectedRecipe.imageUrl} alt={selectedRecipe.title} style={{ maxWidth: '200px' }} />
+                <img src={selectedRecipe.imageUrl} alt={selectedRecipe.title} style={{maxWidth: '200px'}}/>
                 <p>{selectedRecipe.description}</p>
 
                 {/* Details Container for Ingredients and Instructions */}
@@ -29,7 +33,7 @@ const RecipeDetail = ({ selectedRecipe, closeDetails, ratings, handleRating }) =
                     </div>
 
                     <div className="instructions">
-                        <h3>Instruktioner:</h3>
+                        <h3>Gör så här:</h3>
                         <ol>
                             {selectedRecipe.instructions.map((instruction, index) => (
                                 <li key={index}>{instruction}</li>
@@ -38,20 +42,17 @@ const RecipeDetail = ({ selectedRecipe, closeDetails, ratings, handleRating }) =
                     </div>
                 </div>
 
-                {/* Rating Section in the Details Modal (clickable) */}
-                {Array.from({ length: 5 }, (_, index) => (
-                    <span
-                        key={`${selectedRecipe._id}-star-${index}`} // Ensure unique key for each star
-                        className={`star ${ratings[selectedRecipe._id] >= index + 1 ? 'filled' : ''}`}
-                        onClick={() => handleRating(selectedRecipe._id, index + 1)} // Using selectedRecipe._id here
-                        style={{ cursor: 'pointer' }}
-                    >
-                        ★
-                    </span>
-                ))}
+                <div className="rating-difficulty-section">
+                    {/* Use the Rating component for the detailed view */}
+                    <Rating
+                        recipeId={selectedRecipe._id}
+                        ratingValue={ratings[selectedRecipe._id]} // Current rating
+                        handleRating={handleRating} // Pass the handleRating function for interactivity
+                    />
 
-                {/* Display Difficulty Level */}
-                <DifficultyLevel timeInMins={selectedRecipe.timeInMins} />
+                    {/* Display Difficulty Level */}
+                    <DifficultyLevel timeInMins={selectedRecipe.timeInMins}/>
+                </div>
 
                 <div className="details">
                     <span>Tid: {selectedRecipe.timeInMins} minuter</span>

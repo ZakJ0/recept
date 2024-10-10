@@ -1,10 +1,21 @@
 .difficulty {
-    font-weight: bold;
-    color: #666;
-    margin-left: 10px; /* Adds space between the rating and the difficulty */
+    display: flex;
+    align-items: center;
 }
+
 .difficulty-image {
-    width: 20px; /* Adjust the width as per your need */
-    height: 20px; /* Adjust the height as per your need */
-    vertical-align: middle; /* Align the image with text */
+    width: 12px; /* Make the image smaller */
+    height: auto;
+}
+
+@media (min-width: 768px) {
+    .difficulty-image {
+        width: 14px; /* Slightly larger image for medium screens */
+    }
+}
+
+@media (min-width: 1024px) {
+    .difficulty-image {
+        width: 16px; /* Larger image for very large screens */
+    }
 }
