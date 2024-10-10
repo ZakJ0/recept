@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import '../css/App.css';
 import SearchBar from '../components/SearchBar/SearchBar.jsx'; // Import the SearchBar component
-import RecipeList from '../components/reciepeList/RecipeList.jsx'; // Import the RecipeList component
+import RecipeList from './RecipeList/RecipeList.jsx'; // Import the RecipeList component
 import Header from './Header';
 // import NavBar from './NavBar';
 import ItemContainer from './ItemContainer';
