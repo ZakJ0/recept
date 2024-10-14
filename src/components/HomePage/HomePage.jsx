@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './RecipeList.css'; // Include the CSS for styling
+import './HomePage.css';
 import RecipeDetail from '../recipeDetail/RecipeDetail.jsx';
 import RecipeCard from "../RecipeCard/RecipeCard.jsx";
 
@@ -9,7 +9,7 @@ const Error = ({ message }) => <p>Fel: {message}</p>;
 const NoRecipes = () => <p>Inga recept hittades</p>;
 
 
-const RecipeList = ({ searchQuery }) => {
+const HomePage = ({ searchQuery }) => {
     const [recipes, setRecipes] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -110,5 +110,5 @@ const RecipeList = ({ searchQuery }) => {
     );
 };
 
-export default RecipeList;
+export default HomePage;
 

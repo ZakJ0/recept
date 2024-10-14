@@ -4,7 +4,7 @@
     justify-content: right;
     width: calc(100% - 32px);
     margin: 8px;
-    padding: 20px; /* Add padding to give some space around the search bar */
+    padding: 8px; /* Add padding to give some space around the search bar */
     background-color: white; /* Set background color for visibility */
     box-sizing: border-box;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
@@ -14,6 +14,7 @@
     display: flex;
     justify-content: center;
     width: 400px;
+
 }
 
 /* Styling for the search input field */

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import './search.css'; // Import your custom CSS if needed
+import './search.css';
+import HamburgerMenu from '../HamburgerMenu/HamburgerMenu';
 
 const SearchBar = ({ onSearch }) => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -11,6 +12,7 @@ const SearchBar = ({ onSearch }) => {
 
     return (
         <div className="search-container">
+            <HamburgerMenu />
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
