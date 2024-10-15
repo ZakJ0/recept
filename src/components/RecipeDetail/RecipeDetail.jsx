@@ -3,6 +3,7 @@ import React from 'react';
 import './RecipeDetail.css'; // Import the CSS file for styling the recipe details
 import DifficultyLevel from '../difficultyLevel/DifficultyLevel.jsx';
 import Rating from '../rating/Rating.jsx';
+import Comments from "../comments/Comment.jsx";
 
 
 
@@ -58,6 +59,8 @@ const RecipeDetail = ({ selectedRecipe, closeDetails, ratings, handleRating }) =
                     <span>Tid: {selectedRecipe.timeInMins} minuter</span>
                     <span>Pris: {selectedRecipe.price} SEK</span>
                 </div>
+                {/* Comments section */}
+                <Comments recipeId={selectedRecipe._id} />
             </div>
         </>
     );
