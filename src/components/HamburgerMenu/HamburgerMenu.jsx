@@ -18,7 +18,19 @@ const HamburgerMenu = () => {
                 <div className="bar"></div>
                 <div className="bar"></div>
             </div>
-
+            {isOpen && (
+                <div className={`side-menu ${isOpen ? 'side-menu-open' : ''}`}>
+                    <div className="close-icon" onClick={toggleMenu}>
+                        <div className="bar"></div>
+                        <div className="bar"></div>
+                    </div>
+                        <ul>
+                            <li>Recept</li>
+                            <li>Teman</li>
+                            <li>Hem</li>
+                        </ul>
+                </div>
+            )}
         </div>
     );
 

@@ -3,7 +3,7 @@
     display: flex;
     justify-content: right;
     width: calc(100% - 32px);
-    margin: 8px;
+    margin: 8px auto;
     padding: 8px; /* Add padding to give some space around the search bar */
     background-color: white; /* Set background color for visibility */
     box-sizing: border-box;

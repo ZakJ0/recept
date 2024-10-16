@@ -2,7 +2,7 @@ header {
     background-color: gray;
     color: rgb(226, 123, 63);
     text-align: left;
-    margin: 8px;
+    margin: 8px auto;
     padding: 8px;
     border-radius: 1rem;
     overflow: visible;

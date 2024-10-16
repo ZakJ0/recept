@@ -9,6 +9,10 @@
     left: 16px;
 }
 
+.navbar {
+    display: none;
+}
+
 .menu-toggle .bar {
     height: 4px;
     width: 100%;
@@ -17,22 +21,95 @@
     transition: all 0.3s ease;
 }
 
-.menu-toggle.open .bar:nth-child(1) {
-    transform: rotate(45deg);
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -200px;
+    width: 200px;
+    height: 100%;
+    background-color: #333;
+    color: white;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    padding: 24px;
 }
 
-.menu-toggle.open .bar:nth-child(2) {
-    opacity: 0; /* Döljer mittenlinjen */
+.side-menu-open {
+    left: 0;
 }
 
-.menu-toggle.open .bar:nth-child(3) {
-    transform: rotate(-45deg);
+.side-menu ul {
+    list-style: none;
+    margin-top: 54px;
+    padding: 0;
 }
+
+.side-menu ul li {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+
+.close-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 42px;
+    height: 24px;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+}
+
+.close-icon .bar {
+    height: 4px;
+    width: 50%;
+    background-color: white; /* Vit färg för att skilja sig från bakgrunden */
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+
+.close-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 42px;
+    height: 24px;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+}
+
+.close-icon .bar {
+    height: 4px;
+    width: 50%;
+    background-color: white; /* Vit färg för att skilja sig från bakgrunden */
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.close-icon .bar:nth-child(1) {
+    transform: rotate(45deg) translate(0px, 3px);
+}
+
+.close-icon .bar:nth-child(2) {
+    transform: rotate(-45deg) translate(0px, -3px);
+}
+
 
 @media (min-width: 601px) {
 
     .menu-toggle {
-        order: -1;
-        margin-right: auto;
+        display: none;
+    }
+
+    .navbar {
+        display: flex;
     }
 }
