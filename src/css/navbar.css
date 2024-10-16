@@ -1,0 +1,32 @@
+.navbar {
+    display: none;
+    background-color: gray;
+    margin: 8px auto;
+    padding: 0px;
+    border-radius: 1rem;
+    width: calc(100% - 32px);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: rgb(226, 123, 63);
+}
+
+
+@media (min-width: 601px) {
+
+    .navbar {
+        display: flex;
+    }
+}
