@@ -7,7 +7,12 @@ const SearchBar = ({ onSearch }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault(); // Prevent form submission from reloading the page
-        onSearch(searchTerm); // Call the parent function to filter recipes
+
+        // Call the parent function to update the search term in the main component
+        onSearch(searchTerm);
+
+        // Clear the search input field after submission
+        setSearchTerm('');
     };
 
     return (
