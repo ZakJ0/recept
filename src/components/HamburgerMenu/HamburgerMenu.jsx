@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import './HamburgerMenu.css';
-import Navbar from "../NavBar";
-
+import { Link } from 'react-router-dom';
+import './HamburgerMenu.css'
 
 const HamburgerMenu = () => {
 
@@ -28,6 +27,10 @@ const HamburgerMenu = () => {
                             <li>Recept</li>
                             <li>Teman</li>
                             <li>Hem</li>
+                                        
+                            <li><Link to="/">Hem</Link></li>
+                            <li><Link to="/SingleRecipe">Kategorier</Link></li>
+                            <li><a href="#2">Teman</a></li>
                         </ul>
                 </div>
             )}
