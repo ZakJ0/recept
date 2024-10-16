@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './RecipeList.css'; // Include the CSS for styling
+import './HomePage.css';
 import RecipeDetail from '../recipeDetail/RecipeDetail.jsx';
 import RecipeCard from "../RecipeCard/RecipeCard.jsx";
 
@@ -8,8 +8,7 @@ const Loading = () => <p>Laddar...</p>;
 const Error = ({ message }) => <p>Fel: {message}</p>;
 const NoRecipes = () => <p>Inga recept hittades</p>;
 
-
-const RecipeList = ({ searchQuery }) => {
+const HomePage = ({ searchQuery }) => {
     const [recipes, setRecipes] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -42,36 +41,13 @@ const RecipeList = ({ searchQuery }) => {
         fetchRecipes();
     }, []);
 
-    const handleRating = async (recipeId, ratingValue) => {
-        if (!recipeId) {
-            console.error('Error: recipeId is undefined');
-            return;
-        }
+    // Function to handle clicking on a recipe card
+    const showRecipeDetails = (recipe) => {
+        setSelectedRecipe(recipe);
+    };
 
-        setRatings((prevRatings) => ({
-            ...prevRatings,
-            [recipeId]: ratingValue,
-        }));
-
-        try {
-            const response = await fetch(
-                `https://recept7-famul.reky.se/recipes/${recipeId}/ratings`,
-                {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        accept: '*/*',
-                    },
-                    body: JSON.stringify({ rating: ratingValue }),
-                }
-            );
-
-            if (!response.ok) {
-                throw new Error('Failed to submit rating');
-            }
-        } catch (error) {
-            console.error('Error posting rating:', error);
-        }
+    const closeDetails = () => {
+        setSelectedRecipe(null);
     };
 
     const filteredRecipes = recipes.filter((recipe) =>
@@ -80,9 +56,6 @@ const RecipeList = ({ searchQuery }) => {
             category.toLowerCase().includes(searchQuery.toLowerCase())
         )
     );
-
-    const showRecipeDetails = (recipe) => setSelectedRecipe(recipe);
-    const closeDetails = () => setSelectedRecipe(null);
 
     if (loading) return <Loading />;
     if (error) return <Error message={error} />;
@@ -103,12 +76,10 @@ const RecipeList = ({ searchQuery }) => {
                     selectedRecipe={selectedRecipe}
                     closeDetails={closeDetails}
                     ratings={ratings}
-                    handleRating={handleRating}
                 />
             )}
         </div>
     );
 };
 
-export default RecipeList;
-
+export default HomePage;

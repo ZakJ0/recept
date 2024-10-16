@@ -10,6 +10,7 @@ import Comments from "../comments/Comment.jsx";
 const RecipeDetail = ({ selectedRecipe, closeDetails, ratings, handleRating }) => {
     if (!selectedRecipe) return null;
 
+
     return (
         <>
             <div className="overlay" onClick={closeDetails} /> {/* Close modal on overlay click */}
@@ -48,7 +49,7 @@ const RecipeDetail = ({ selectedRecipe, closeDetails, ratings, handleRating }) =
                     <Rating
                         recipeId={selectedRecipe._id}
                         ratingValue={ratings[selectedRecipe._id]} // Current rating
-                        handleRating={handleRating} // Pass the handleRating function for interactivity
+                        handleRating={false} // Pass the handleRating function for interactivity
                     />
 
                     {/* Display Difficulty Level */}
