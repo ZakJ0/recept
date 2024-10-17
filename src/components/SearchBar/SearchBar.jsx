@@ -1,16 +1,23 @@
 import React, { useState } from 'react';
-import './search.css'; // Import your custom CSS if needed
+import './search.css';
+import HamburgerMenu from "../HamburgerMenu/HamburgerMenu.jsx"; // Import your custom CSS if needed
 
 const SearchBar = ({ onSearch }) => {
     const [searchTerm, setSearchTerm] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault(); // Prevent form submission from reloading the page
-        onSearch(searchTerm); // Call the parent function to filter recipes
+
+        // Call the parent function to update the search term in the main component
+        onSearch(searchTerm);
+
+        // Clear the search input field after submission
+        setSearchTerm('');
     };
 
     return (
         <div className="search-container">
+            <HamburgerMenu/>
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"

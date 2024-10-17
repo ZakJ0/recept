@@ -3,11 +3,13 @@ import React from 'react';
 import './RecipeDetail.css'; // Import the CSS file for styling the recipe details
 import DifficultyLevel from '../difficultyLevel/DifficultyLevel.jsx';
 import Rating from '../rating/Rating.jsx';
+import Comments from "../comments/Comment.jsx";
 
 
 
 const RecipeDetail = ({ selectedRecipe, closeDetails, ratings, handleRating }) => {
     if (!selectedRecipe) return null;
+
 
     return (
         <>
@@ -47,7 +49,7 @@ const RecipeDetail = ({ selectedRecipe, closeDetails, ratings, handleRating }) =
                     <Rating
                         recipeId={selectedRecipe._id}
                         ratingValue={ratings[selectedRecipe._id]} // Current rating
-                        handleRating={handleRating} // Pass the handleRating function for interactivity
+                        handleRating={false} // Pass the handleRating function for interactivity
                     />
 
                     {/* Display Difficulty Level */}
@@ -58,6 +60,8 @@ const RecipeDetail = ({ selectedRecipe, closeDetails, ratings, handleRating }) =
                     <span>Tid: {selectedRecipe.timeInMins} minuter</span>
                     <span>Pris: {selectedRecipe.price} SEK</span>
                 </div>
+                {/* Comments section */}
+                <Comments recipeId={selectedRecipe._id} />
             </div>
         </>
     );

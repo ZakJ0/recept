@@ -1,0 +1,135 @@
+/* General Card Styling */
+.recipe {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #ecf0f1;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.recipe:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.recipe img {
+    width: 100%;
+    height: 200px; /* Set a fixed height */
+    border-radius: 8px;
+    object-fit: cover; /* Ensures the image covers the area while keeping aspect ratio */
+    margin-bottom: 15px;
+    transition: opacity 0.3s ease-in-out;
+}
+
+
+.recipe img:hover {
+    opacity: 0.9;
+}
+
+.recipe-content {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.recipe h2 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    color: #2c3e50;
+}
+
+.recipe p {
+    font-size: 1.1rem;
+    color: #34495e;
+    margin-bottom: 15px;
+}
+/* Add styling for the new button */
+.view-recipe-button {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.view-recipe-button button {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.view-recipe-button button:hover {
+    background-color: #2980b9;
+}
+
+
+/* Rating and Difficulty Section */
+.rating-difficulty-section {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+/* Details Section */
+.details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #3498db;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .recipe {
+        padding: 15px;
+    }
+
+    .recipe h2 {
+        font-size: 1.3rem;
+    }
+
+    .recipe p {
+        font-size: 1rem;
+    }
+
+    .details {
+        font-size: 0.9rem;
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .recipe {
+        padding: 10px;
+    }
+
+    .recipe img {
+        height: auto; /* Allow the image height to adjust based on the screen size */
+    }
+
+    .recipe h2 {
+        font-size: 1.1rem;
+    }
+
+    .recipe p {
+        font-size: 0.9rem;
+    }
+
+    .details {
+        font-size: 0.8rem;
+        flex-direction: column;
+        gap: 5px;
+    }
+}
