@@ -6,7 +6,7 @@ import SearchBar from '../components/SearchBar/SearchBar.jsx'; // Import the Sea
 import Header from './Header';
 import NavBar from '../components/NavBar';
 import SingleRecipe from '../components/SingleRecipe.jsx';
-import HomePage from '../components/HomePage/HomePage.jsx';
+import HomePage from '../components/homePage/HomePage.jsx';
 
 
 function App() {
