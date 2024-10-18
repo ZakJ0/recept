@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './HomePage.css';
-import RecipeDetail from '../RecipeDetail/RecipeDetail.jsx';
+import RecipeDetail from '../recipeDetail/RecipeDetail.jsx';
 import RecipeCard from "../RecipeCard/RecipeCard.jsx";
 
 // Reusable components for common parts
@@ -15,32 +15,30 @@ const HomePage = ({ searchQuery }) => {
     const [ratings, setRatings] = useState({});
     const [selectedRecipe, setSelectedRecipe] = useState(null);
 
-    // Fetch recipes function
-    const fetchRecipes = async () => {
-        setLoading(true); // Set loading to true before fetching new data
-        try {
-            const response = await fetch('https://recept7-famul.reky.se/recipes');
-            if (!response.ok) {
-                throw new Error('Failed to fetch recipes');
-            }
-            const data = await response.json();
-
-            const initialRatings = data.reduce((acc, recipe) => {
-                acc[recipe._id] = recipe.avgRating || 0;
-                return acc;
-            }, {});
-
-            setRecipes(data);
-            setRatings(initialRatings);
-        } catch (err) {
-            setError(err.message);
-        } finally {
-            setLoading(false); // Set loading to false after fetching is done
-        }
-    };
-
     useEffect(() => {
-        fetchRecipes(); // Initial load
+        const fetchRecipes = async () => {
+            try {
+                const response = await fetch('https://recept7-famul.reky.se/recipes');
+                if (!response.ok) {
+                    throw new Error('Failed to fetch recipes');
+                }
+                const data = await response.json();
+
+                const initialRatings = data.reduce((acc, recipe) => {
+                    acc[recipe._id] = recipe.avgRating || 0;
+                    return acc;
+                }, {});
+
+                setRecipes(data);
+                setRatings(initialRatings);
+            } catch (err) {
+                setError(err.message);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchRecipes();
     }, []);
 
     // Function to handle clicking on a recipe card
@@ -48,13 +46,10 @@ const HomePage = ({ searchQuery }) => {
         setSelectedRecipe(recipe);
     };
 
-    // Function to close details and refetch recipes
     const closeDetails = () => {
         setSelectedRecipe(null);
-        fetchRecipes(); // Refetch the data when details are closed
     };
 
-    // Filter recipes based on the search query
     const filteredRecipes = recipes.filter((recipe) =>
         recipe.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         recipe.categories.some((category) =>
