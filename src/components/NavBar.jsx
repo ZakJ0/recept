@@ -28,7 +28,7 @@ const Navbar = () => {
     return (
         <nav className="navbar">
             <ul className="nav-links">
-                <li><Link to="/">Homepage</Link></li>
+                <li><Link to="/">Hem</Link></li>
 
                 {/* Dropdown for Categories */}
                 <div className="dropdown">
