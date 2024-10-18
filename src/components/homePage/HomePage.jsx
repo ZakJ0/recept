@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './HomePage.css';
-import RecipeDetail from '../recipeDetail/RecipeDetail.jsx';
+import RecipeDetail from '../RecipeDetail/RecipeDetail.jsx';
+>>>>>>> origin/master
 import RecipeCard from "../RecipeCard/RecipeCard.jsx";
 
 // Reusable components for common parts

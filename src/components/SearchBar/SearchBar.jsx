@@ -13,6 +13,12 @@ const SearchBar = ({ onSearch }) => {
 
         // Clear the search input field after submission
         setSearchTerm('');
+
+        // Call the parent function to update the search term in the main component
+        onSearch(searchTerm);
+
+        // Clear the search input field after submission
+        setSearchTerm('');
     };
 
     return (

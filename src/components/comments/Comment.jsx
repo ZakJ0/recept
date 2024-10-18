@@ -19,7 +19,6 @@ const Comments = ({ recipeId }) => {
                 }
                 const data = await response.json();
 
-                // Assume each comment has a unique id and created_at timestamp
                 const formattedComments = data.map(comment => {
                     return { ...comment }; // Adjust this based on your API response
                 });
@@ -39,6 +38,17 @@ const Comments = ({ recipeId }) => {
     const handleCommentSubmit = async (e) => {
         e.preventDefault();
 
+        // Trim inputs to remove leading/trailing spaces
+        const trimmedName = name.trim();
+        const trimmedComment = newComment.trim();
+
+        // Validate that name and comment are not empty or just spaces
+        if (trimmedName === '' || trimmedComment === '') {
+            setError('Namn och kommentar får inte vara tomma eller bara mellanslag.');
+            alert("Du kan inte lämna den tom!")
+            return;
+        }
+
         // Disable form while submitting
         setIsSubmitting(true);
 
@@ -52,7 +62,7 @@ const Comments = ({ recipeId }) => {
                     'Content-Type': 'application/json',
                 },
                 // Send the name with the date appended, and the comment separately
-                body: JSON.stringify({ comment: newComment, name: `${localDate} ${name} ` }),
+                body: JSON.stringify({ comment: trimmedComment, name: `${localDate} ${trimmedName}` }),
             });
 
             if (!response.ok) {
@@ -70,13 +80,13 @@ const Comments = ({ recipeId }) => {
             // Clear the input fields
             setNewComment('');
             setName('');
+            setError(null); // Clear any previous errors
 
             // Set isSubmitted to true to show the thank you message
             setIsSubmitted(true);
         } catch (error) {
             setError(error.message);
         } finally {
-            // Even though submission has finished, form will stay disabled due to isSubmitted
             setIsSubmitting(false);
         }
     };
@@ -84,7 +94,7 @@ const Comments = ({ recipeId }) => {
     return (
         <div className="comments-section">
             <h3>Kommentarer</h3>
-            {error && <p>Fel: {error}</p>}
+            {error && <p className="error">Fel: {error}</p>}
             {comments.length === 0 ? (
                 <p>Inga kommentarer än</p>
             ) : (
@@ -98,7 +108,6 @@ const Comments = ({ recipeId }) => {
                 </ul>
             )}
 
-            {/* Conditionally render the form or the thank you message */}
             {!isSubmitted ? (
                 <form onSubmit={handleCommentSubmit} className="comment-form">
                     <input

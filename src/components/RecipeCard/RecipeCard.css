@@ -82,12 +82,22 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #3498db;
-    color: white;
+    background-color: #f1f1f1; /* Change to a neutral background color */
+    color: #34495e; /* Set a neutral text color */
     padding: 10px;
     border-radius: 5px;
     font-size: 1rem;
+    cursor: default; /* Ensure it doesn't show a pointer cursor */
 }
+
+/* Specific styling for time and price to make them look non-clickable */
+.details span {
+    color: #2c3e50; /* Ensure the text is not blue */
+    font-weight: normal; /* Use normal font-weight */
+    text-decoration: none; /* Remove any underline or other link styles */
+    cursor: default; /* Ensure it doesn't show a pointer cursor */
+}
+
 
 /* Responsive Design */
 @media (max-width: 768px) {
