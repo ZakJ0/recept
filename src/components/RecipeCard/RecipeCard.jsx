@@ -1,7 +1,6 @@
 import React from 'react';
 import './RecipeCard.css';
 import Rating from "../rating/Rating.jsx";
-import Rating from "../rating/Rating.jsx";
 import DifficultyLevel from "../difficultyLevel/DifficultyLevel.jsx";
 
 // Component for individual recipe card
@@ -20,8 +19,6 @@ const RecipeCard = ({ recipe, showRecipeDetails }) => (
                 {/* Display only the average rating statically */}
                 <Rating
                     recipeId={recipe._id}
-                    ratingValue={recipe.avgRating} // Show the average rating from the API
-                    isStatic={true} // Make sure the rating is static, so it's not clickable
                     ratingValue={recipe.avgRating} // Show the average rating from the API
                     isStatic={true} // Make sure the rating is static, so it's not clickable
                 />

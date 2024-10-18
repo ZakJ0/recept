@@ -23,6 +23,37 @@
     color: rgb(226, 123, 63);
 }
 
+.dropdown {
+  position: relative; /* Viktigt för att placera dropdown-innehållet */
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none; /* Döljer dropdown-innehållet som standard */
+  position: absolute; /* Låser dropdown-innehållet relativt till sin förälder */
+  background-color: #f9f9f9;
+  min-width: 160px; /* Bredd på dropdown-menyn */
+  max-height: 400px;
+  overflow-y: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1; /* Ser till att dropdownen visas ovanpå annat innehåll */
+}
+
+.dropdown-content.show {
+  display: block; /* Visar dropdown-innehållet när det är öppet */
+}
+
+/* Stil för länkar i dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block; /* Gör att länkarna sträcker sig över hela bredden */
+}
+
+.dropdown-content a:hover {
+  background-color: rgb(226, 123, 63); /* Hover-effekt */
+}
 
 @media (min-width: 601px) {
 
@@ -30,3 +61,5 @@
       display: flex;
   }
 }
+
+
