@@ -7,7 +7,7 @@ import Header from './Header';
 import NavBar from '../components/NavBar';
 import SingleRecipe from '../components/SingleRecipe.jsx';
 import HomePage from '../components/homePage/HomePage.jsx';
-
+import Categories from '../components//category/Category.jsx';
 
 function App() {
     const [searchQuery, setSearchQuery] = useState(''); // State to hold the search query
@@ -23,11 +23,8 @@ function App() {
                 <SearchBar onSearch={handleSearch}/> {/* Pass the search handler to SearchBar */}
                 <Routes>
                     <Route path="/" element={<HomePage searchQuery={searchQuery} />} /> {/* Pass the search query to RecipeList */}
-                    
-                
-
-                
                     <Route path="/SingleRecipe" element={<SingleRecipe />} />
+                    <Route path="/category/:categoryName" element={<Categories />} />
                 </Routes>
             </div>
         </Router>

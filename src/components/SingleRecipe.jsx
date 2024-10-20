@@ -7,8 +7,7 @@ function SingleRecipe() {
     return (
         <div>
             <img src={headerImage} id="headerimg" alt="tasty dish image" />
-            <h1>Här kan t ex alla teman vara</h1>
-            <p>Fast i en egen komponent då, som vi får igång snart :)</p>
+            <h1>???</h1>
         </div>
     );
 }

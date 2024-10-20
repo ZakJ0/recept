@@ -5,9 +5,44 @@ import './HamburgerMenu.css'
 const HamburgerMenu = () => {
 
     const [isOpen, setIsOpen] = useState(false);
+    const [categoriesOpen, setCategoriesOpen] = useState(false);
+    const [categories, setCategories] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
+        setCategoriesOpen(false);
+    };
+
+    const closeOnClick = () => {
+        setIsOpen(false);
+    }
+
+    // Hämta kategorier
+    const fetchCategories = async () => {
+        setLoading(true);
+        setError(null); // Nollställ eventuell tidigare error
+        try {
+            const response = await fetch('https://recept7-famul.reky.se/categories');
+            if (!response.ok) {
+                throw new Error('Failed to fetch categories');
+            }
+            const data = await response.json();
+            setCategories(data);
+        } catch (err) {
+            setError(err.message);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    // Hantera klick på "Kategorier" för att visa/hämta kategorier
+    const handleCategoriesClick = () => {
+        if (!categoriesOpen) {
+            fetchCategories();
+        }
+        setCategoriesOpen(!categoriesOpen); // Öppna/stäng undermenyn
     };
 
     return (
@@ -23,14 +58,28 @@ const HamburgerMenu = () => {
                         <div className="bar"></div>
                         <div className="bar"></div>
                     </div>
-                        <ul>
-                            <li>Recept</li>
-                            <li>Teman</li>
-                            <li>Hem</li>
-                                        
-                            <li><Link to="/">Hem</Link></li>
-                            <li><Link to="/SingleRecipe">Kategorier</Link></li>
-                            <li><a href="#2">Teman</a></li>
+                        <ul>      
+                            <li><Link to="/" onClick={closeOnClick}>Hem</Link></li>
+
+                                {/* Hantera kategoriklick */}
+                            <li onClick={handleCategoriesClick} className="categories-item">
+                                Kategorier {categoriesOpen ? '-' : '+'}
+                            </li>
+                            {categoriesOpen && (
+                                <ul className="categories-submenu">
+                                    {loading && <li>Laddar...</li>}
+                                    {error && <li>{error}</li>}
+                                    {!loading && !error && categories.map((category) => (
+                                        <li key={category.name}>
+                                            <Link to={`/category/${category.name}`} onClick={closeOnClick}>
+                                                {category.name}
+                                            </Link>
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
+
+                            <li><Link to="/SingleRecipe" onClick={closeOnClick}>Teman</Link></li>
                         </ul>
                 </div>
             )}
