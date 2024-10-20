@@ -1,27 +1,34 @@
-// RecipeDetail.jsx
-import React from 'react';
+import React, { useState } from 'react';
 import './RecipeDetail.css'; // Import the CSS file for styling the recipe details
 import DifficultyLevel from '../difficultyLevel/DifficultyLevel.jsx';
 import Rating from '../rating/Rating.jsx';
 import Comments from "../comments/Comment.jsx";
 
+const RecipeDetail = ({ selectedRecipe, closeDetails, ratings }) => {
+    const [isRatingSubmitted, setIsRatingSubmitted] = useState(false); // Track if rating was submitted
 
-
-const RecipeDetail = ({ selectedRecipe, closeDetails, ratings, handleRating }) => {
     if (!selectedRecipe) return null;
 
+    // Handler for when the user submits a rating
+    const handleRatingSubmit = () => {
+        setIsRatingSubmitted(true);
+    };
+
+    // Reset the rating state when closing the modal
+    const handleModalClose = () => {
+        setIsRatingSubmitted(false);
+        closeDetails();
+    };
 
     return (
         <>
-            <div className="overlay" onClick={closeDetails} /> {/* Close modal on overlay click */}
+            <div className="overlay" onClick={handleModalClose} /> {/* Close modal on overlay click */}
             <div className="recipe-details">
-                <button className="close-button" onClick={closeDetails}>✖</button>
-                {/* Close button */}
+                <button className="close-button" onClick={handleModalClose}>✖</button>
                 <h2>{selectedRecipe.title}</h2>
                 <img src={selectedRecipe.imageUrl} alt={selectedRecipe.title} style={{maxWidth: '200px'}}/>
                 <p>{selectedRecipe.description}</p>
 
-                {/* Details Container for Ingredients and Instructions */}
                 <div className="details-container">
                     <div className="ingredients">
                         <h3>Ingredienser:</h3>
@@ -49,17 +56,18 @@ const RecipeDetail = ({ selectedRecipe, closeDetails, ratings, handleRating }) =
                     <Rating
                         recipeId={selectedRecipe._id}
                         ratingValue={ratings[selectedRecipe._id]} // Current rating
-                        handleRating={false} // Pass the handleRating function for interactivity
+                        isStatic={isRatingSubmitted}  // Disable if already submitted
+                        onRatingSubmit={handleRatingSubmit}  // Pass submit handler
                     />
 
-                    {/* Display Difficulty Level */}
-                    <DifficultyLevel timeInMins={selectedRecipe.timeInMins}/>
+                    <DifficultyLevel timeInMins={selectedRecipe.timeInMins} />
                 </div>
 
                 <div className="details">
                     <span>Tid: {selectedRecipe.timeInMins} minuter</span>
                     <span>Pris: {selectedRecipe.price} SEK</span>
                 </div>
+
                 {/* Comments section */}
                 <Comments recipeId={selectedRecipe._id} />
             </div>

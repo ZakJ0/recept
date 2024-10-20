@@ -46,8 +46,10 @@ const HomePage = ({ searchQuery }) => {
         setSelectedRecipe(recipe);
     };
 
+    // Function to close recipe details and reload the page
     const closeDetails = () => {
         setSelectedRecipe(null);
+        window.location.reload();  // Reload the page when closing the details
     };
 
     const filteredRecipes = recipes.filter((recipe) =>

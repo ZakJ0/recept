@@ -42,10 +42,17 @@ const Comments = ({ recipeId }) => {
         const trimmedName = name.trim();
         const trimmedComment = newComment.trim();
 
-        // Validate that name and comment are not empty or just spaces
-        if (trimmedName === '' || trimmedComment === '') {
-            setError('Namn och kommentar får inte vara tomma eller bara mellanslag.');
-            alert("Du kan inte lämna den tom!")
+        // Validate name
+        if (trimmedName === '') {
+            setError('Fyll i ditt namn!');
+            alert("Fyll i ditt namn!"); // Custom alert for empty name
+            return;
+        }
+
+        // Validate comment
+        if (trimmedComment === '') {
+            setError('Skriv en kommentar!');
+            alert("Skriv en kommentar!"); // Custom alert for empty comment
             return;
         }
 
