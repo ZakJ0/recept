@@ -48,9 +48,10 @@
     border-color: #4521a9;
 }
 
-.hamburgermenu {
+.hamburger-menu {
     position: absolute;
     left: 0;
+    margin-left: 24px;
 }
 
 /* Adds some margin to the rest of the content to avoid overlap with the fixed search bar */

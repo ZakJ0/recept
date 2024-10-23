@@ -83,8 +83,6 @@ const HamburgerMenu = ({resetSearch}) => {
                                 </ul>
                             )}
                             <li><Link to="/aboutus" onClick={closeOnClick}>Om oss</Link></li>
-                            <li><Link to="/" onClick={returnHomeOnClick}>Hem</Link></li>
-
                         </ul>
                 </div>
             )}
