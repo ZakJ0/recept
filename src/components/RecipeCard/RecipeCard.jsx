@@ -35,12 +35,6 @@ const RecipeCard = ({ recipe, showRecipeDetails }) => (
                 Se det här receptet
             </button>
         </div>
-        {/* Add "Se det här receptet" button to open RecipeDetail */}
-        <div className="view-recipe-button">
-            <button onClick={() => showRecipeDetails(recipe)}>
-                Se det här receptet
-            </button>
-        </div>
     </div>
 );
 

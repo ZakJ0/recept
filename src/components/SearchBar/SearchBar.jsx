@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './search.css';
 import HamburgerMenu from '../HamburgerMenu/HamburgerMenu';
 
-const SearchBar = ({ onSearch }) => {
+const SearchBar = ({ onSearch, resetSearch }) => {
     const [searchTerm, setSearchTerm] = useState('');
 
     const handleSubmit = (e) => {
@@ -23,7 +23,9 @@ const SearchBar = ({ onSearch }) => {
 
     return (
         <div className="search-container">
-            <HamburgerMenu />
+            <div className="hamburger-menu">
+                <HamburgerMenu resetSearch={resetSearch}/>
+            </div>
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"

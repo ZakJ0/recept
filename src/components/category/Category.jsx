@@ -13,6 +13,7 @@ const Categories = () => {
     const [error, setError] = useState(null);
     const [selectedRecipe, setSelectedRecipe] = useState(null);
     const [ratings, setRatings] = useState({});
+    
     // Fetch recipes function
     const fetchRecipes = async () => {
         setLoading(true); // Set loading to true before fetching new data

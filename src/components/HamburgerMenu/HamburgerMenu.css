@@ -112,10 +112,25 @@
 @media (min-width: 601px) {
 
     .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 12px;
+        width: 42px;
+        height: 24px;
+        cursor: pointer;
+        left: 16px;
+    }
+
+
+/*
+    .menu-toggle {
         display: none;
     }
 
     .navbar {
         display: flex;
     }
+*/
+
 }

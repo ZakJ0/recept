@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from 'react-router-dom';
 import './HamburgerMenu.css'
 
-const HamburgerMenu = () => {
+const HamburgerMenu = ({resetSearch}) => {
 
     const [isOpen, setIsOpen] = useState(false);
     const [categoriesOpen, setCategoriesOpen] = useState(false);
@@ -17,6 +17,11 @@ const HamburgerMenu = () => {
 
     const closeOnClick = () => {
         setIsOpen(false);
+    }
+
+    const returnHomeOnClick = () => {
+        closeOnClick();
+        resetSearch();
     }
 
     // Hämta kategorier
@@ -42,7 +47,7 @@ const HamburgerMenu = () => {
         if (!categoriesOpen) {
             fetchCategories();
         }
-        setCategoriesOpen(!categoriesOpen); // Öppna/stäng undermenyn
+        setCategoriesOpen(!categoriesOpen);
     };
 
     return (
@@ -59,9 +64,8 @@ const HamburgerMenu = () => {
                         <div className="bar"></div>
                     </div>
                         <ul>      
-                            <li><Link to="/" onClick={closeOnClick}>Hem</Link></li>
+                            <li><Link to="/" onClick={returnHomeOnClick}>Hem</Link></li>
 
-                                {/* Hantera kategoriklick */}
                             <li onClick={handleCategoriesClick} className="categories-item">
                                 Kategorier {categoriesOpen ? '-' : '+'}
                             </li>
@@ -78,8 +82,9 @@ const HamburgerMenu = () => {
                                     ))}
                                 </ul>
                             )}
+                            <li><Link to="/aboutus" onClick={closeOnClick}>Om oss</Link></li>
+                            <li><Link to="/" onClick={returnHomeOnClick}>Hem</Link></li>
 
-                            <li><Link to="/SingleRecipe" onClick={closeOnClick}>Teman</Link></li>
                         </ul>
                 </div>
             )}

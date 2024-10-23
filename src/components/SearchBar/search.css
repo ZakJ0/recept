@@ -32,7 +32,6 @@
     border-color: gray;
 }
 
-/* Styling for the search button */
 .search-container button {
     padding: 10px 20px;
     font-size: 1em;
@@ -47,6 +46,11 @@
 .search-container button:hover {
     background-color: #4521a9;
     border-color: #4521a9;
+}
+
+.hamburgermenu {
+    position: absolute;
+    left: 0;
 }
 
 /* Adds some margin to the rest of the content to avoid overlap with the fixed search bar */
