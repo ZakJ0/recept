@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import './Rating.css'; // Include the CSS for the rating stars
+import './Rating.css';
 
 const Rating = ({ recipeId, ratingValue, isStatic = false, onRatingSubmit }) => {
     const [avgRating, setAvgRating] = useState(ratingValue || 0); // Default to passed rating value
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [submitted, setSubmitted] = useState(false);
-    const [disabled, setDisabled] = useState(false); // New state to disable rating interaction
 
     // Fetch the average rating when the component mounts or when recipeId changes
     useEffect(() => {
@@ -36,19 +35,9 @@ const Rating = ({ recipeId, ratingValue, isStatic = false, onRatingSubmit }) => 
 
     // Handle rating submission
     const submitRating = async (ratingValue) => {
-        if (!recipeId || ratingValue === undefined) return; // If no recipeId or rating, exit
-
-        // Check if the user has already rated and display an alert if they try to rate again
-        if (submitted) {
-            alert('Du har redan lagt ett betyg!'); // Alert the user
-            return;
-        }
+        if (!recipeId || ratingValue === undefined || submitted) return; // Exit if already submitted
 
         try {
-            // Optimistically update the rating
-            setAvgRating(ratingValue);
-            setDisabled(true); // Disable further interaction
-
             // Post the new rating
             const response = await fetch(
                 `https://recept7-famul.reky.se/recipes/${recipeId}/ratings`,
@@ -79,7 +68,8 @@ const Rating = ({ recipeId, ratingValue, isStatic = false, onRatingSubmit }) => 
             // Set the new average rating from the API response
             setAvgRating(updatedRecipe.avgRating || 0);
             setSubmitted(true); // Mark as submitted
-            onRatingSubmit();  // Notify parent about rating submission
+            onRatingSubmit(); // Call the function to indicate rating submitted
+
         } catch (err) {
             setError(err.message);
             console.error('Error submitting rating:', err);
@@ -91,18 +81,18 @@ const Rating = ({ recipeId, ratingValue, isStatic = false, onRatingSubmit }) => 
     }
 
     if (error) {
+        console.error('Error fetching or submitting rating:', error);
         return <p>Failed to load rating: {error}</p>;
     }
 
     return (
         <div className="rating-section">
-            {/* Show average rating stars (if static) or let the user select rating (if dynamic) */}
             {Array.from({ length: 5 }, (_, index) => (
                 <span
                     key={index}
                     className={`star ${avgRating >= index + 1 ? 'filled' : ''}`}
-                    onClick={() => !isStatic && !disabled && submitRating(index + 1)} // Allow click if not static or disabled
-                    style={{ cursor: isStatic || disabled ? 'default' : 'pointer' }} // Disable pointer if static or disabled
+                    onClick={() => !isStatic && submitRating(index + 1)} // Allow click if not static
+                    style={{ cursor: isStatic || submitted ? 'default' : 'pointer' }} // Disable pointer if already submitted
                 >
                     ★
                 </span>
