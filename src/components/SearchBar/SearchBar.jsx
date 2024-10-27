@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './search.css';
-import HamburgerMenu from "../HamburgerMenu/HamburgerMenu.jsx"; // Import your custom CSS if needed
+import HamburgerMenu from '../HamburgerMenu/HamburgerMenu';
 
-const SearchBar = ({ onSearch }) => {
+const SearchBar = ({ onSearch, resetSearch }) => {
     const [searchTerm, setSearchTerm] = useState('');
 
     const handleSubmit = (e) => {
@@ -13,11 +13,19 @@ const SearchBar = ({ onSearch }) => {
 
         // Clear the search input field after submission
         setSearchTerm('');
+
+        // Call the parent function to update the search term in the main component
+        onSearch(searchTerm);
+
+        // Clear the search input field after submission
+        setSearchTerm('');
     };
 
     return (
         <div className="search-container">
-            <HamburgerMenu/>
+            <div className="hamburger-menu">
+                <HamburgerMenu resetSearch={resetSearch}/>
+            </div>
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"

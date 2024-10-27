@@ -3,14 +3,17 @@ header {
     color: rgb(226, 123, 63);
     text-align: left;
     margin: 8px auto;
+    margin: 8px auto;
     padding: 8px;
     border-radius: 1rem;
     overflow: visible;
     min-height: 100px;
     width: calc(100% - 32px);
+    width: calc(100% - 32px);
     box-sizing: border-box;
     display: flex;
     align-items: center;
+    flex-wrap: nowrap;
     flex-wrap: nowrap;
 }
 
@@ -21,11 +24,13 @@ header {
     padding: 8px;
     flex-wrap: nowrap;
     max-width: 75px;
+    max-width: 75px;
     border-radius: 3rem;
 }
 
 #headimg {
     height: 100px;
+    width: auto;
     width: auto;
     border-radius: 5rem;
     margin: 8px;
@@ -38,8 +43,12 @@ h1 {
     margin: 0;
     padding: 0;
     max-width: 100%;
+    max-width: 100%;
     flex-shrink: 1;
     flex-grow: 1;
+    font-size: 3vw;
+    line-height: 1;
+    white-space: normal;
     font-size: 3vw;
     line-height: 1;
     white-space: normal;
@@ -49,7 +58,7 @@ h1 {
 
 @media (min-width: 768px) {
     #headerimg {
-        max-width: 100px;
+        max-width: 100px; 
         max-height: 100px;
     }
 

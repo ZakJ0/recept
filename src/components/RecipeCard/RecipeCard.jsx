@@ -16,6 +16,7 @@ const RecipeCard = ({ recipe, showRecipeDetails }) => (
             <p>{recipe.description}</p>
             <div className="rating-difficulty-section">
                 {/* Display only the average rating statically */}
+                {/* Display only the average rating statically */}
                 <Rating
                     recipeId={recipe._id}
                     ratingValue={recipe.avgRating} // Show the average rating from the API
@@ -36,5 +37,6 @@ const RecipeCard = ({ recipe, showRecipeDetails }) => (
         </div>
     </div>
 );
+
 
 export default RecipeCard;

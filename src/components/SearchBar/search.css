@@ -3,8 +3,8 @@
     display: flex;
     justify-content: right;
     width: calc(100% - 32px);
-    margin: 8px;
-    padding: 20px; /* Add padding to give some space around the search bar */
+    margin: 8px auto;
+    padding: 8px; /* Add padding to give some space around the search bar */
     background-color: white; /* Set background color for visibility */
     box-sizing: border-box;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
@@ -14,6 +14,7 @@
     display: flex;
     justify-content: center;
     width: 400px;
+
 }
 
 /* Styling for the search input field */
@@ -31,7 +32,6 @@
     border-color: gray;
 }
 
-/* Styling for the search button */
 .search-container button {
     padding: 10px 20px;
     font-size: 1em;
@@ -46,6 +46,12 @@
 .search-container button:hover {
     background-color: #4521a9;
     border-color: #4521a9;
+}
+
+.hamburger-menu {
+    position: absolute;
+    left: 0;
+    margin-left: 24px;
 }
 
 /* Adds some margin to the rest of the content to avoid overlap with the fixed search bar */
