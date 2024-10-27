@@ -2,13 +2,15 @@ import React, { useState } from "react";
 import { Link } from 'react-router-dom';
 import './HamburgerMenu.css'
 
-const HamburgerMenu = ({resetSearch}) => {
-
+const HamburgerMenu = ({ resetSearch }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [categoriesOpen, setCategoriesOpen] = useState(false);
     const [categories, setCategories] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
+
+    // List of categories to ignore
+    const ignoredCategories = ['Ekofood', 'Fredagsmys', 'Speed-lunch', 'Junkfood', 'Fitnessmeal'];
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -17,24 +19,25 @@ const HamburgerMenu = ({resetSearch}) => {
 
     const closeOnClick = () => {
         setIsOpen(false);
-    }
+    };
 
     const returnHomeOnClick = () => {
         closeOnClick();
         resetSearch();
-    }
+    };
 
-    // Hämta kategorier
+    // Fetch categories and filter out the ignored ones
     const fetchCategories = async () => {
         setLoading(true);
-        setError(null); // Nollställ eventuell tidigare error
+        setError(null);
         try {
             const response = await fetch('https://recept7-famul.reky.se/categories');
             if (!response.ok) {
                 throw new Error('Failed to fetch categories');
             }
             const data = await response.json();
-            setCategories(data);
+            const filteredCategories = data.filter(category => !ignoredCategories.includes(category.name));
+            setCategories(filteredCategories);
         } catch (err) {
             setError(err.message);
         } finally {
@@ -42,7 +45,6 @@ const HamburgerMenu = ({resetSearch}) => {
         }
     };
 
-    // Hantera klick på "Kategorier" för att visa/hämta kategorier
     const handleCategoriesClick = () => {
         if (!categoriesOpen) {
             fetchCategories();
@@ -63,32 +65,30 @@ const HamburgerMenu = ({resetSearch}) => {
                         <div className="bar"></div>
                         <div className="bar"></div>
                     </div>
-                        <ul>      
-                            <li><Link to="/" onClick={returnHomeOnClick}>Hem</Link></li>
-
-                            <li onClick={handleCategoriesClick} className="categories-item">
-                                Kategorier {categoriesOpen ? '-' : '+'}
-                            </li>
-                            {categoriesOpen && (
-                                <ul className="categories-submenu">
-                                    {loading && <li>Laddar...</li>}
-                                    {error && <li>{error}</li>}
-                                    {!loading && !error && categories.map((category) => (
-                                        <li key={category.name}>
-                                            <Link to={`/category/${category.name}`} onClick={closeOnClick}>
-                                                {category.name}
-                                            </Link>
-                                        </li>
-                                    ))}
-                                </ul>
-                            )}
-                            <li><Link to="/aboutus" onClick={closeOnClick}>Om oss</Link></li>
-                        </ul>
+                    <ul>
+                        <li><Link to="/" onClick={returnHomeOnClick}>Hem</Link></li>
+                        <li onClick={handleCategoriesClick} className="categories-item">
+                            Kategorier {categoriesOpen ? '-' : '+'}
+                        </li>
+                        {categoriesOpen && (
+                            <ul className="categories-submenu">
+                                {loading && <li>Laddar...</li>}
+                                {error && <li>{error}</li>}
+                                {!loading && !error && categories.map((category) => (
+                                    <li key={category.name}>
+                                        <Link to={`/category/${category.name}`} onClick={closeOnClick}>
+                                            {category.name}
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
+                        <li><Link to="/aboutus" onClick={closeOnClick}>Om oss</Link></li>
+                    </ul>
                 </div>
             )}
         </div>
     );
-
 };
 
 export default HamburgerMenu;
