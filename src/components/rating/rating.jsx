@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import './Rating.css'; // Include the CSS for the rating stars
+import './Rating.css';
 
-const Rating = ({ recipeId, ratingValue, handleRating, isStatic = false }) => {
+const Rating = ({ recipeId, ratingValue, isStatic = false, onRatingSubmit }) => {
     const [avgRating, setAvgRating] = useState(ratingValue || 0); // Default to passed rating value
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [userRating, setUserRating] = useState(0); // Track user's rating
     const [submitted, setSubmitted] = useState(false);
 
     // Fetch the average rating when the component mounts or when recipeId changes
@@ -36,12 +35,9 @@ const Rating = ({ recipeId, ratingValue, handleRating, isStatic = false }) => {
 
     // Handle rating submission
     const submitRating = async (ratingValue) => {
-        if (!recipeId || ratingValue === undefined) return; // If no recipeId or rating, exit
+        if (!recipeId || ratingValue === undefined || submitted) return; // Exit if already submitted
 
         try {
-            // Optimistically update the rating
-            setAvgRating(ratingValue); // Optimistically update the average rating
-
             // Post the new rating
             const response = await fetch(
                 `https://recept7-famul.reky.se/recipes/${recipeId}/ratings`,
@@ -72,7 +68,7 @@ const Rating = ({ recipeId, ratingValue, handleRating, isStatic = false }) => {
             // Set the new average rating from the API response
             setAvgRating(updatedRecipe.avgRating || 0);
             setSubmitted(true); // Mark as submitted
-            //alert("Tack för ditt betyg!");
+            onRatingSubmit(); // Call the function to indicate rating submitted
 
         } catch (err) {
             setError(err.message);
@@ -91,13 +87,12 @@ const Rating = ({ recipeId, ratingValue, handleRating, isStatic = false }) => {
 
     return (
         <div className="rating-section">
-            {/* Show average rating stars (if static) or let the user select rating (if dynamic) */}
             {Array.from({ length: 5 }, (_, index) => (
                 <span
                     key={index}
                     className={`star ${avgRating >= index + 1 ? 'filled' : ''}`}
                     onClick={() => !isStatic && submitRating(index + 1)} // Allow click if not static
-                    style={{ cursor: isStatic ? 'default' : 'pointer' }} // Disable pointer for static stars
+                    style={{ cursor: isStatic || submitted ? 'default' : 'pointer' }} // Disable pointer if already submitted
                 >
                     ★
                 </span>
