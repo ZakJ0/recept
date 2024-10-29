@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Rating.css';
 
+
 const Rating = ({ recipeId, ratingValue, isStatic = false, onRatingSubmit }) => {
     const [avgRating, setAvgRating] = useState(ratingValue || 0); // Default to passed rating value
     const [loading, setLoading] = useState(true);
