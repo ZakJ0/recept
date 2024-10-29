@@ -47,9 +47,17 @@ const HomePage = ({ searchQuery, selectedDifficulties, selectedRatings, selected
         // Filter recipes based on search term and selected filters
         const applyFilters = () => {
             const filtered = recipes.filter((recipe) => {
-                const matchesSearchTerm = recipe.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                // Check for matches in title, categories, ingredients, and instructions
+                const matchesSearchTerm =
+                    recipe.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
                     recipe.categories.some((category) =>
                         category.toLowerCase().includes(searchQuery.toLowerCase())
+                    ) ||
+                    recipe.ingredients.some((ingredient) =>
+                        ingredient.name.toLowerCase().includes(searchQuery.toLowerCase())
+                    ) ||
+                    recipe.instructions.some((instruction) =>
+                        instruction.toLowerCase().includes(searchQuery.toLowerCase())
                     );
 
                 const difficultyLevel = getDifficultyLevel(recipe.timeInMins);
