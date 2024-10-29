@@ -21,8 +21,6 @@
     transition: all 0.3s ease;
 }
 
-
-
 .close-icon {
     display: flex;
     flex-direction: column;
@@ -96,6 +94,7 @@
     list-style: none;
     padding: 0;
     padding-bottom: 24px;
+    cursor: pointer;
 }
 
 .side-menu ul li {
@@ -104,6 +103,17 @@
     font-size: 16px;
     padding-bottom: 0px;
 }
+
+.categories-item {
+    font-weight: 500;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .categories-item:hover {
+    color: rgb(226, 123, 63);
+  }
+  
 
 .categories-submenu {
     margin-left: 24px;
@@ -121,8 +131,6 @@
         cursor: pointer;
         left: 16px;
     }
-
-
 /*
     .menu-toggle {
         display: none;

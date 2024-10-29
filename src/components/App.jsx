@@ -3,10 +3,10 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import '../css/App.css';
 import SearchBar from '../components/SearchBar/SearchBar.jsx';
-import Header from './Header';
-import NavBar from '../components/NavBar';
+import Header from '../components/Header/Header.jsx';
+// import NavBar from '../components/NavBar';
 import HomePage from '../components/homePage/HomePage.jsx';
-import Categories from '../components//category/Category.jsx';
+import Categories from '../components/category/Category.jsx';
 import AboutUs from './AboutUs/AboutUs.jsx';
 function App() {
     const [searchQuery, setSearchQuery] = useState('');
