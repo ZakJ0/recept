@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
 import '../css/App.css';
 import SearchBar from '../components/SearchBar/SearchBar.jsx';
 import Header from './Header';
@@ -7,6 +7,7 @@ import NavBar from '../components/NavBar';
 import HomePage from '../components/homePage/HomePage.jsx';
 import Categories from '../components/category/Category.jsx';
 import AboutUs from './AboutUs/AboutUs.jsx';
+import RecipeForm from "./recipeForm/RecipeForm.jsx";
 
 function App() {
     const [searchQuery, setSearchQuery] = useState('');
@@ -61,7 +62,7 @@ function App() {
     return (
         <Router>
             <div>
-                <Header />
+                <Header/>
                 <SearchBar
                     onSearch={handleSearch}
                     onDifficultySelect={handleDifficultySelect}
@@ -72,15 +73,22 @@ function App() {
                     selectedThemes={selectedThemes}
                     availableThemes={availableThemes}
                 />
+                <nav>
+                    {/* Other nav links */}
+                    <Link to="/send-recipe">
+                        <button>Send Us Your Recipe</button>
+                    </Link>
+                </nav>
                 <Routes>
                     <Route path="/" element={<HomePage
                         searchQuery={searchQuery}
                         selectedDifficulties={selectedDifficulties}
                         selectedRatings={selectedRatings}
                         selectedThemes={selectedThemes}
-                    />} />
-                    <Route path='/aboutus' element={<AboutUs />} />
-                    <Route path="/category/:categoryName" element={<Categories />} />
+                    />}/>
+                    <Route path='/aboutus' element={<AboutUs/>}/>
+                    <Route path="/category/:categoryName" element={<Categories/>}/>
+                    <Route path="/send-recipe" element={<RecipeForm/>}/>
                 </Routes>
             </div>
         </Router>

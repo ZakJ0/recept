@@ -44,20 +44,22 @@ const HomePage = ({ searchQuery, selectedDifficulties, selectedRatings, selected
     }, []);
 
     useEffect(() => {
-        // Filter recipes based on search term and selected filters
+        // Filter recipes based on selected filters (excluding title search)
         const applyFilters = () => {
             const filtered = recipes.filter((recipe) => {
-                // Check for matches in title, categories, ingredients, and instructions
+                // Create a regular expression with word boundaries for exact word matching
+                const searchTermRegex = new RegExp(`\\b${searchQuery.toLowerCase()}\\b`);
+
+                // Check for matches in categories, ingredients, and instructions only
                 const matchesSearchTerm =
-                    recipe.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
                     recipe.categories.some((category) =>
-                        category.toLowerCase().includes(searchQuery.toLowerCase())
+                        searchTermRegex.test(category.toLowerCase())
                     ) ||
                     recipe.ingredients.some((ingredient) =>
-                        ingredient.name.toLowerCase().includes(searchQuery.toLowerCase())
+                        searchTermRegex.test(ingredient.name.toLowerCase())
                     ) ||
                     recipe.instructions.some((instruction) =>
-                        instruction.toLowerCase().includes(searchQuery.toLowerCase())
+                        searchTermRegex.test(instruction.toLowerCase())
                     );
 
                 const difficultyLevel = getDifficultyLevel(recipe.timeInMins);
@@ -76,6 +78,8 @@ const HomePage = ({ searchQuery, selectedDifficulties, selectedRatings, selected
 
         applyFilters();
     }, [searchQuery, selectedDifficulties, selectedRatings, selectedThemes, recipes]);
+
+
 
     // Close recipe details and reload the page
     const closeDetails = () => {
