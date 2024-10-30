@@ -109,6 +109,17 @@
 .details span {
     font-size: 1rem;
 }
+.ratings-difficulty {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.ratings-difficulty .rating,
+.ratings-difficulty .difficulty {
+    font-size: 1rem;
+    color: #2c3e50;
+}
 
 @media (max-width: 768px) {
     .details {

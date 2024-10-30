@@ -1,20 +1,23 @@
 /* Container for the search bar */
 .search-container {
     display: flex;
-    justify-content: right;
+    justify-content: flex-start; /* Changed from right to left */
+    flex-wrap: wrap; /* Allow wrapping of items */
     width: calc(100% - 32px);
     margin: 8px auto;
-    padding: 8px; /* Add padding to give some space around the search bar */
+    padding: 8px;
     background-color: white; /* Set background color for visibility */
     box-sizing: border-box;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
 }
 
+/* Style for form */
 .search-container form {
     display: flex;
-    justify-content: center;
-    width: 400px;
-
+    justify-content: flex-start; /* Changed from center to flex-start */
+    width: 100%; /* Make the form take full width */
+    max-width: 600px; /* Max width for larger screens */
+    margin-right: 8px; /* Space between input and button */
 }
 
 /* Styling for the search input field */
@@ -25,7 +28,7 @@
     border: 2px solid gray;
     outline: none;
     transition: border-color 0.3s ease;
-    width: 100%;
+    flex-grow: 1; /* Allow the input to grow */
 }
 
 .search-container input[type="text"]:focus {
@@ -49,9 +52,29 @@
 }
 
 .hamburger-menu {
-    position: absolute;
-    left: 0;
-    margin-left: 24px;
+    margin-right: 8px; /* Space between hamburger menu and search bar */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .search-container {
+        flex-direction: column; /* Stack items vertically on small screens */
+        align-items: stretch; /* Stretch items to take full width */
+    }
+
+    .search-container form {
+        width: 100%; /* Make form full width on small screens */
+    }
+
+    .search-container button {
+        width: 100%; /* Full width button */
+        margin-top: 8px; /* Space above button */
+    }
+
+    .hamburger-menu {
+        align-self: flex-start; /* Align hamburger menu to start */
+        margin-bottom: 8px; /* Space below hamburger menu */
+    }
 }
 
 /* Adds some margin to the rest of the content to avoid overlap with the fixed search bar */

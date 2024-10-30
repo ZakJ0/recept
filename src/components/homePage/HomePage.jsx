@@ -3,13 +3,15 @@ import './HomePage.css';
 import RecipeDetail from '../RecipeDetail/RecipeDetail.jsx';
 import RecipeCard from "../RecipeCard/RecipeCard.jsx";
 
-// Reusable components for common parts
-const Loading = () => <p>Laddar...</p>;
-const Error = ({ message }) => <p>Fel: {message}</p>;
-const NoRecipes = () => <p>Inga recept hittades</p>;
+const getDifficultyLevel = (timeInMins) => {
+    if (timeInMins < 15) return 'Easy';
+    if (timeInMins <= 30) return 'Medium';
+    return 'Hard';
+};
 
-const HomePage = ({ searchQuery }) => {
+const HomePage = ({ searchQuery, selectedDifficulties, selectedRatings, selectedThemes }) => {
     const [recipes, setRecipes] = useState([]);
+    const [filteredRecipes, setFilteredRecipes] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [ratings, setRatings] = useState({});
@@ -41,43 +43,73 @@ const HomePage = ({ searchQuery }) => {
         fetchRecipes();
     }, []);
 
-    // Function to handle clicking on a recipe card
-    const showRecipeDetails = (recipe) => {
-        setSelectedRecipe(recipe);
-    };
+    useEffect(() => {
+        // Filter recipes based on selected filters (excluding title search)
+        const applyFilters = () => {
+            const filtered = recipes.filter((recipe) => {
+                // Create a regular expression with word boundaries for exact word matching
+                const searchTermRegex = new RegExp(`\\b${searchQuery.toLowerCase()}\\b`);
 
+                // Check for matches in categories, ingredients, and instructions only
+                const matchesSearchTerm =
+                    recipe.categories.some((category) =>
+                        searchTermRegex.test(category.toLowerCase())
+                    ) ||
+                    recipe.ingredients.some((ingredient) =>
+                        searchTermRegex.test(ingredient.name.toLowerCase())
+                    ) ||
+                    recipe.instructions.some((instruction) =>
+                        searchTermRegex.test(instruction.toLowerCase())
+                    );
+
+                const difficultyLevel = getDifficultyLevel(recipe.timeInMins);
+                const matchesDifficulty = selectedDifficulties.length === 0 || selectedDifficulties.includes(difficultyLevel);
+
+                const matchesRating = selectedRatings.length === 0 || selectedRatings.includes(recipe.avgRating);
+
+                const matchesThemes = selectedThemes.length === 0 || recipe.categories.some(category =>
+                    selectedThemes.includes(category)
+                );
+
+                return matchesSearchTerm && matchesDifficulty && matchesRating && matchesThemes;
+            });
+            setFilteredRecipes(filtered);
+        };
+
+        applyFilters();
+    }, [searchQuery, selectedDifficulties, selectedRatings, selectedThemes, recipes]);
+
+
+
+    // Close recipe details and reload the page
     const closeDetails = () => {
         setSelectedRecipe(null);
+        window.location.reload();  // Reload the page when closing the details
     };
 
-    const filteredRecipes = recipes.filter((recipe) =>
-        recipe.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        recipe.categories.some((category) =>
-            category.toLowerCase().includes(searchQuery.toLowerCase())
-        )
-    );
-
-    if (loading) return <Loading />;
-    if (error) return <Error message={error} />;
-    if (filteredRecipes.length === 0) return <NoRecipes />;
+    if (loading) return <p>Laddar...</p>;
+    if (error) return <p>Fel: {error}</p>;
+    if (filteredRecipes.length === 0) return <p>Inga recept hittades</p>;
 
     return (
-        <div className="recipe-list">
-            {filteredRecipes.map((recipe) => (
-                <RecipeCard
-                    key={recipe._id}
-                    recipe={recipe}
-                    showRecipeDetails={showRecipeDetails}
-                />
-            ))}
+        <div className="home-page">
+            <div className="recipe-list">
+                {filteredRecipes.map((recipe) => (
+                    <RecipeCard
+                        key={recipe._id}
+                        recipe={recipe}
+                        showRecipeDetails={() => setSelectedRecipe(recipe)}
+                    />
+                ))}
 
-            {selectedRecipe && (
-                <RecipeDetail
-                    selectedRecipe={selectedRecipe}
-                    closeDetails={closeDetails}
-                    ratings={ratings}
-                />
-            )}
+                {selectedRecipe && (
+                    <RecipeDetail
+                        selectedRecipe={selectedRecipe}
+                        closeDetails={closeDetails}
+                        ratings={ratings}
+                    />
+                )}
+            </div>
         </div>
     );
 };

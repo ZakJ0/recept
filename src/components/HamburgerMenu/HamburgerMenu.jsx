@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 import './HamburgerMenu.css';
 import '../SearchBar/search.css';
 
-const HamburgerMenu = ({resetSearch}) => {
-
+const HamburgerMenu = ({ resetSearch }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [categoriesOpen, setCategoriesOpen] = useState(false);
 
@@ -22,7 +21,7 @@ const HamburgerMenu = ({resetSearch}) => {
 
     const closeOnClick = () => {
         setIsOpen(false);
-    }
+    };
 
     /*
     const returnHomeOnClick = () => {
@@ -39,7 +38,8 @@ const HamburgerMenu = ({resetSearch}) => {
                 throw new Error('Failed to fetch categories');
             }
             const data = await response.json();
-            setCategories(data);
+            const filteredCategories = data.filter(category => !ignoredCategories.includes(category.name));
+            setCategories(filteredCategories);
         } catch (err) {
             setError(err.message);
         } finally {
@@ -71,7 +71,6 @@ const HamburgerMenu = ({resetSearch}) => {
             )}
         </div>
     );
-
 };
 
 export default HamburgerMenu;
