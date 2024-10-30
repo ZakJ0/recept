@@ -1,4 +1,12 @@
 h1 {
     margin: 24px;
+    margin-left: 200px;
     padding: 24px;
+}
+
+.text {
+    text-align: left;
+    margin: 24px;
+    margin-top: 56px;
+    margin-bottom: 480px;
 }

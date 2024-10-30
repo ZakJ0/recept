@@ -24,7 +24,7 @@ a {
   text-decoration: inherit;
 }
 a:hover {
-  color: rgb(226, 123, 63);
+  color: white;
 }
 
 li {
@@ -69,7 +69,7 @@ button:focus-visible {
     background-color: #ffffff;
   }
   a:hover {
-    color: rgb(226, 123, 63);
+    color: white;
   }
 
   button {

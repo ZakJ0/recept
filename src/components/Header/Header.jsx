@@ -1,6 +1,5 @@
 import React from "react";
 import './Header.css';
-//import headerImage from '../assets/images/headdish.jpg';
 
 function Header() {
     return (
