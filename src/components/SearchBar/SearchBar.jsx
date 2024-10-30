@@ -29,7 +29,7 @@ const SearchBar = ({
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
-                    placeholder="Sök efter kategori eller recept..."
+                    placeholder="Sök efter kategori,receptnamn,ingredienser eller instruktioner"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                 />
