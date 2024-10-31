@@ -12,6 +12,11 @@ function Footer() {
                     <li><Link to="/aboutus">Om oss</Link></li>
 
                 </ul>
+                <div className="email-button">
+                    <Link to="/send-recipe">
+                        <button>Skicka in ditt eget recept!</button>
+                    </Link>
+                </div>
             </div>
         </footer>
     );

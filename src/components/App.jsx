@@ -6,7 +6,6 @@ import Header from '../components/Header/Header.jsx';
 // import NavBar from '../components/NavBar';
 import HomePage from '../components/homePage/HomePage.jsx';
 import Categories from '../components/category/Category.jsx';
-import Categories from '../components/category/Category.jsx';
 import AboutUs from './AboutUs/AboutUs.jsx';
 import Footer from './Footer/Footer.jsx';
 import RecipeForm from "./recipeForm/RecipeForm.jsx";
@@ -75,12 +74,6 @@ function App() {
                     selectedThemes={selectedThemes}
                     availableThemes={availableThemes}
                 />
-                <nav>
-                    {/* Other nav links */}
-                    <Link to="/send-recipe">
-                        <button>Send Us Your Recipe</button>
-                    </Link>
-                </nav>
                 <Routes>
                     <Route path="/" element={<HomePage
                         searchQuery={searchQuery}

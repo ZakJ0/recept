@@ -1,23 +1,26 @@
 /* Container for the search bar */
 .search-container {
     display: flex;
-    justify-content: flex-start; /* Changed from right to left */
-    flex-wrap: wrap; /* Allow wrapping of items */
+    align-items: center; /* Centrera elementen vertikalt */
+    justify-content: flex-start; /* Justera till vänster om du vill */
     width: calc(100% - 32px);
     margin: 8px auto;
-    padding: 8px;
-    background-color: white; /* Set background color for visibility */
+    padding: 8px; /* Lägg till padding för att ge utrymme */
+    background-color: white; /* Sätt bakgrundsfärg för synlighet */
     box-sizing: border-box;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Lägg till en subtil skugga */
 }
 
-/* Style for form */
+/* Styling for the hamburger menu */
+.hamburger-menu {
+    margin-right: 8px; /* Lägg till marginal för att separera från sökfältet */
+}
+
+/* Form styling */
 .search-container form {
     display: flex;
-    justify-content: flex-start; /* Changed from center to flex-start */
-    width: 100%; /* Make the form take full width */
-    max-width: 600px; /* Max width for larger screens */
-    margin-right: 8px; /* Space between input and button */
+    justify-content: center;
+    width: 400px;
 }
 
 /* Styling for the search input field */
@@ -28,7 +31,7 @@
     border: 2px solid gray;
     outline: none;
     transition: border-color 0.3s ease;
-    flex-grow: 1; /* Allow the input to grow */
+    width: 100%; /* Fyller tillgängligt utrymme */
 }
 
 .search-container input[type="text"]:focus {
@@ -51,33 +54,7 @@
     border-color: #4521a9;
 }
 
-.hamburger-menu {
-    margin-right: 8px; /* Space between hamburger menu and search bar */
-}
-
-/* Responsive styles */
-@media (max-width: 768px) {
-    .search-container {
-        flex-direction: column; /* Stack items vertically on small screens */
-        align-items: stretch; /* Stretch items to take full width */
-    }
-
-    .search-container form {
-        width: 100%; /* Make form full width on small screens */
-    }
-
-    .search-container button {
-        width: 100%; /* Full width button */
-        margin-top: 8px; /* Space above button */
-    }
-
-    .hamburger-menu {
-        align-self: flex-start; /* Align hamburger menu to start */
-        margin-bottom: 8px; /* Space below hamburger menu */
-    }
-}
-
 /* Adds some margin to the rest of the content to avoid overlap with the fixed search bar */
 .body-content {
-    margin-top: 100px; /* Adds enough space for the fixed search bar */
+    margin-top: 100px; /* Lägger till tillräckligt med utrymme för den fasta sökfältet */
 }
