@@ -7,7 +7,7 @@ import NavBar from '../components/NavBar';
 import HomePage from '../components/homePage/HomePage.jsx';
 import Categories from '../components/category/Category.jsx';
 import AboutUs from './AboutUs/AboutUs.jsx';
-import RecipeForm from "./recipeForm/RecipeForm.jsx";
+import ContactUs from "./contactUs/ContactUs.jsx";
 
 function App() {
     const [searchQuery, setSearchQuery] = useState('');
@@ -63,6 +63,7 @@ function App() {
         <Router>
             <div>
                 <Header/>
+
                 <SearchBar
                     onSearch={handleSearch}
                     onDifficultySelect={handleDifficultySelect}
@@ -76,7 +77,7 @@ function App() {
                 <nav>
                     {/* Other nav links */}
                     <Link to="/send-recipe">
-                        <button>Send Us Your Recipe</button>
+                        <button>Kontakta oss</button>
                     </Link>
                 </nav>
                 <Routes>
@@ -88,7 +89,7 @@ function App() {
                     />}/>
                     <Route path='/aboutus' element={<AboutUs/>}/>
                     <Route path="/category/:categoryName" element={<Categories/>}/>
-                    <Route path="/send-recipe" element={<RecipeForm/>}/>
+                    <Route path="/send-recipe" element={<ContactUs/>}/>
                 </Routes>
             </div>
         </Router>
