@@ -1,7 +1,6 @@
 footer {
     position: relative;
     color: black;
-    font-weight: 600;
     text-align: left;
     overflow: visible;
     min-height: 150px;
@@ -9,7 +8,6 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-wrap: nowrap;
 
     background-image: url('../../assets/images/backgroundheader.png');
     background-size: cover;
@@ -17,15 +15,16 @@ footer {
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
+/* Gradient */
 footer::before {
-    content: ''; /* Nödvändig för att skapa ett pseudoelement */
-    position: absolute; /* Gör det absolut i förhållande till headern */
-    top: 0; /* Täck hela headern från toppen */
-    left: 0; /* Täck hela headern från vänster */
-    right: 0; /* Täck hela headern från höger */
-    bottom: 0; /* Täck hela headern från botten */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.6)); /* Toning */
-    z-index: 1; /* Se till att toningen ligger ovanpå bilden */
+    z-index: 1;
 }
 
 .footer-content {
@@ -33,24 +32,43 @@ footer::before {
     z-index: 2;
 }
 
-h1 {
-    position: relative;
+.footer-left, .footer-center {
+    flex: 1;
     z-index: 2;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    letter-spacing: 4px;
-    margin: 0;
-    padding: 0;
-    max-width: 100%;
-    max-width: 100%;
+}
+
+.footer-left {
+    text-align: left;
+    margin: 4px;
+    margin-left: 24px;
+    line-height: 0.8;
+    font-weight: 500;
+}
+
+.footer-center {
+    text-align: center;
+    font-style: italic;
+    flex: 1;
+  }
+
+h3 {
+    position: relative;
+    display: flex;
+    align-items: center;
+    z-index: 2;
+    font-family: 'Georgia', serif;
+    letter-spacing: 1px;
+    font-weight: 150;
     flex-shrink: 1;
     flex-grow: 1;
-    font-size: 3vw;
+    font-size: 32px;
     line-height: 1;
     white-space: normal;
     overflow: visible;
     text-overflow: ellipsis;
 }
 
+/*
 .footer-links {
     list-style: none;
 }
@@ -94,7 +112,7 @@ h1 {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
     transform: translateY(-2px);
 }
-
+*/
 
 @media (min-width: 768px) {
 
@@ -112,12 +130,11 @@ h1 {
     background-position: center -150px;
     }
 
-    .footer-content {
-        display: flex;
-        flex-direction: row; /* Placera innehåll på rad */
-        width: 100%; /* Se till att innehållet använder hela bredden */
+    .footer-left {
+        margin-left: 56px;
     }
-
+    
+    /*
     .email-button {
         margin-top: 8px;
         margin-left: 24px;
@@ -126,4 +143,5 @@ h1 {
     h1 {
         font-size: 3vw;
     }
+    */
 }

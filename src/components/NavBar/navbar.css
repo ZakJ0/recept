@@ -1,16 +1,19 @@
 .navbar {
   display: none;
-  background-color: gray;
+  background-color: rgb(202, 198, 198);
   margin: 8px auto;
   padding: 0px;
-  border-radius: 1rem;
-  width: calc(100% - 32px);
+  width: calc(100%);
 }
 
 .nav-links {
   list-style: none;
   display: flex;
   gap: 1rem;
+}
+
+.link-aligned-right {
+  margin-left: auto;
 }
 
 .nav-links li a {

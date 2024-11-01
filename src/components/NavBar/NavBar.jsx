@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'; 
 import { Link } from 'react-router-dom';
-import '../css/navbar.css';
+import './navbar.css';
 
 
 const Navbar = ({resetSearch}) => {
@@ -46,6 +46,7 @@ const Navbar = ({resetSearch}) => {
                         )}
                     </div>
                 </div>
+                    <li className='link-aligned-right'><Link to="/aboutus">Om oss</Link></li>
             </ul>
         </nav>
     );

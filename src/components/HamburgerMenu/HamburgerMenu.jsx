@@ -62,10 +62,33 @@ const HamburgerMenu = ({ resetSearch }) => {
                 <div className="bar"></div>
             </div>
             {isOpen && (
-            
-                <div className="filterExpansion">
-                    <h4>Filtrera efter svårighetsgrad</h4>
 
+                <div className={`side-menu ${isOpen ? 'side-menu-open' : ''}`}>
+                    <div className="close-icon" onClick={toggleMenu}>
+                        <div className="bar"></div>
+                        <div className="bar"></div>
+                    </div>
+                        <ul>      
+                            <li><Link to="/" onClick={returnHomeOnClick}>Hem</Link></li>
+
+                            <li onClick={handleCategoriesClick} className="categories-item">
+                                Kategorier {categoriesOpen ? '-' : '+'}
+                            </li>
+                            {categoriesOpen && (
+                                <ul className="categories-submenu">
+                                    {loading && <li>Laddar...</li>}
+                                    {error && <li>{error}</li>}
+                                    {!loading && !error && categories.map((category) => (
+                                        <li key={category.name}>
+                                            <Link to={`/category/${category.name}`} onClick={closeOnClick}>
+                                                {category.name}
+                                            </Link>
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
+                            <li><Link to="/aboutus" onClick={closeOnClick}>Om oss</Link></li>
+                        </ul>
                 </div>
                 
             )}
