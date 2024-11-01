@@ -3,7 +3,7 @@ footer {
     color: black;
     text-align: left;
     overflow: visible;
-    min-height: 150px;
+    min-height: 240px;
     box-sizing: border-box;
     display: flex;
     align-items: center;
@@ -12,7 +12,6 @@ footer {
     background-image: url('../../assets/images/backgroundheader.png');
     background-size: cover;
     background-repeat: no-repeat;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 /* Gradient */
@@ -23,17 +22,13 @@ footer::before {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.6)); /* Toning */
+    background-image: linear-gradient(to top, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 1)); /* Toning */
     z-index: 1;
-}
-
-.footer-content {
-    position: relative;
-    z-index: 2;
 }
 
 .footer-left, .footer-center {
     flex: 1;
+    margin-bottom: 24px;
     z-index: 2;
 }
 

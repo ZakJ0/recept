@@ -64,9 +64,9 @@ function App() {
         <Router>
             <div>
                 <Header/>
-                <NavBar />
+                <NavBar resetSearch={resetSearch}/>
                 
-                {/*
+                
                 <SearchBar
                     onSearch={handleSearch}
                     onDifficultySelect={handleDifficultySelect}
@@ -77,7 +77,7 @@ function App() {
                     selectedThemes={selectedThemes}
                     availableThemes={availableThemes}
                 />
-                */}
+                
 
                 <Routes>
                     <Route path="/" element={<HomePage

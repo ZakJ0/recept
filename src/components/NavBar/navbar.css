@@ -1,29 +1,32 @@
 .navbar {
-  display: none;
-  background-color: rgb(202, 198, 198);
+  display: none; /* Dölj navbaren i mobilvy som standard */
   margin: 8px auto;
   padding: 0px;
   width: calc(100%);
+  position: relative; /* Gör navbaren relativ */
 }
 
 .nav-links {
+  margin-left: 16px;
   list-style: none;
-  display: flex;
+  display: flex; /* Använd flexbox för att styra layouten */
   gap: 1rem;
+  align-items: center; /* Centrerar länkarna vertikalt */
 }
 
-.link-aligned-right {
-  margin-left: auto;
+.nav-links .right {
+  position: absolute; /* Gör "Om oss" absolut */
+  right: 0; /* Placera den till höger */
+  margin-right: 56px;
 }
 
 .nav-links li a {
-  color: white;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .nav-links li a:hover {
-  color: rgb(226, 123, 63);
+  color: gray;
   cursor: pointer;
 }
 
@@ -32,7 +35,7 @@ span {
 }
 
 .category-List {
-  color: white;
+  color: black;
   text-decoration: none;
   transition: color 0.3s ease;
   cursor: pointer;

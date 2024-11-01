@@ -19,12 +19,12 @@
 }
 
 a {
+  color: black;
   font-weight: 500;
-  color: white;
   text-decoration: inherit;
 }
 a:hover {
-  color: white;
+  color: gray;
 }
 
 li {
@@ -56,10 +56,10 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: gray;
 }
-button:focus,
-button:focus-visible {
+
+button:focus, button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 

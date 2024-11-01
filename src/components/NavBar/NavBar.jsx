@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './navbar.css';
 
-
-const Navbar = ({resetSearch}) => {
+const Navbar = ({ resetSearch }) => {
     const [categories, setCategories] = useState([]);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -32,7 +31,7 @@ const Navbar = ({resetSearch}) => {
         <nav className="navbar">
             <ul className="nav-links">
                 <li><Link to="/" onClick={resetSearch}>Hem</Link></li>
-                <div className="dropdown" onClick={toggleDropdown}>
+                <li className="dropdown" onClick={toggleDropdown}>
                     <span className="category-List">Kategorier</span>
                     <div className={`dropdown-content ${isDropdownOpen ? 'show' : ''}`}>
                         {categories.length === 0 ? (
@@ -45,8 +44,8 @@ const Navbar = ({resetSearch}) => {
                             ))
                         )}
                     </div>
-                </div>
-                    <li className='link-aligned-right'><Link to="/aboutus">Om oss</Link></li>
+                </li>
+                <li className="right"><Link to="/aboutus">Om oss</Link></li> {/* Separat länk */}
             </ul>
         </nav>
     );
