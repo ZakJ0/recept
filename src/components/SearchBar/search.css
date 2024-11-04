@@ -2,14 +2,13 @@
 .search-container {
     display: flex;
     align-items: center; /* Centrera elementen vertikalt */
-    justify-content: flex-start; /* Justera till vänster om du vill */
+    justify-content: center; /* Justera till vänster om du vill */
     width: calc(100% - 32px);
     margin: 8px auto;
     padding: 8px; /* Lägg till padding för att ge utrymme */
     background-color: white; /* Sätt bakgrundsfärg för synlighet */
     box-sizing: border-box;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Lägg till en subtil skugga */
-}
+    }
 
 /* Styling for the hamburger menu */
 .hamburger-menu {
