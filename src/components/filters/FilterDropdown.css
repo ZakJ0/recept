@@ -43,6 +43,19 @@
     gap: 5px;
 }
 
+/* Adjust for mid-sized screens (e.g., tablets) */
+@media (max-width: 1024px) {
+
+    .filter-content {
+        position: static; /* Align below the button */
+        width: 100%;
+        box-shadow: none; /* Remove box shadow */
+        padding: 15px;
+        border-radius: 8px;
+        margin-top: 10px;
+    }
+}
+
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .filter-button {
@@ -52,13 +65,15 @@
 
     .filter-content {
         padding: 15px;
-        min-width: 180px;
+        min-width: 100%;
+        box-shadow: none;
     }
 }
 
+/* Mobile adjustments for screens up to 480px */
 @media (max-width: 480px) {
     .filter-dropdown {
-        width: 100%; /* Make dropdown take the full width */
+        width: 100%;
     }
 
     .filter-button {
