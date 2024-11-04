@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import './search.css';
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu.jsx";
-import RatingFilter from '../filters/RatingFilter.jsx';
-import DifficultyFilter from '../filters/DifficultyFilter.jsx';
-import ThemeFilter from '../filters/ThemeFilter.jsx';
+import FilterDropdown from "../filters/FilterDropdown.jsx";
+// Import the new FilterDropdown component
 
 const SearchBar = ({
                        onSearch,
@@ -13,7 +12,7 @@ const SearchBar = ({
                        selectedDifficulties,
                        selectedRatings,
                        selectedThemes,
-                       availableThemes // Pass the available themes from HomePage
+                       availableThemes
                    }) => {
     const [searchTerm, setSearchTerm] = useState('');
 
@@ -29,27 +28,22 @@ const SearchBar = ({
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
-                    placeholder="Sök efter kategori,receptnamn,ingredienser eller instruktioner"
+                    placeholder="Sök efter kategori, receptnamn, ingredienser eller instruktioner"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                 />
                 <button type="submit">Sök</button>
             </form>
 
-            <DifficultyFilter
+            {/* Use FilterDropdown instead of individual filters */}
+            <FilterDropdown
                 selectedDifficulties={selectedDifficulties}
-                onSelectDifficulty={onDifficultySelect}
-            />
-
-            <RatingFilter
+                onDifficultySelect={onDifficultySelect}
                 selectedRatings={selectedRatings}
-                onSelectRating={onRatingSelect}
-            />
-
-            <ThemeFilter
+                onRatingSelect={onRatingSelect}
                 selectedThemes={selectedThemes}
-                onSelectTheme={onThemeSelect}
-                availableThemes={availableThemes} // Pass available themes to ThemeFilter
+                onThemeSelect={onThemeSelect}
+                availableThemes={availableThemes}
             />
         </div>
     );
