@@ -4,7 +4,7 @@ header {
     text-align: left;
     padding: 0 20px;
     overflow: visible;
-    min-height: 200px;
+    min-height: 240px;
     box-sizing: border-box;
     display: flex;
     align-items: center;
@@ -13,19 +13,19 @@ header {
     background-image: url('../../assets/images/backgroundheader.png');
     background-size: cover;
     background-repeat: no-repeat;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
+/*Gradient*/
 header::before {
-    content: ''; /* Nödvändig för att skapa ett pseudoelement */
-    position: absolute; /* Gör det absolut i förhållande till headern */
-    top: 0; /* Täck hela headern från toppen */
-    left: 0; /* Täck hela headern från vänster */
-    right: 0; /* Täck hela headern från höger */
-    bottom: 0; /* Täck hela headern från botten */
-    background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.6)); /* Toning */
-    z-index: 1; /* Se till att toningen ligger ovanpå bilden */
-    pointer-events: none; /* Så att man fortfarande kan interagera med headern */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 1)); /* Toning */
+    z-index: 1;
+    pointer-events: none;
 }
 
 h1 {

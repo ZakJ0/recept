@@ -6,3 +6,8 @@
     max-width: 1200px; /* Optional: Set a max width for the grid container */
     margin: 0 auto; /* Center the grid container on the screen */
 }
+
+h2 {
+    margin: 24px;
+    padding: 16px;
+}

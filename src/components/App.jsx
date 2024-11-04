@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
 import '../css/App.css';
 import SearchBar from '../components/SearchBar/SearchBar.jsx';
 import Header from '../components/Header/Header.jsx';
+import NavBar from '../components/NavBar/NavBar.jsx';
 import HomePage from '../components/homePage/HomePage.jsx';
 import Categories from '../components/category/Category.jsx';
 import AboutUs from './AboutUs/AboutUs.jsx';
@@ -63,6 +64,9 @@ function App() {
         <Router>
             <div>
                 <Header/>
+                <NavBar resetSearch={resetSearch}/>
+                
+                
                 <SearchBar
                     onSearch={handleSearch}
                     onDifficultySelect={handleDifficultySelect}
@@ -73,12 +77,7 @@ function App() {
                     selectedThemes={selectedThemes}
                     availableThemes={availableThemes}
                 />
-                <nav>
-                    {/* Other nav links */}
-                    <Link to="/send-recipe">
-                        <button>Send Us Your Recipe</button>
-                    </Link>
-                </nav>
+
                 <Routes>
                     <Route path="/" element={<HomePage
                         searchQuery={searchQuery}
