@@ -7,12 +7,9 @@ const HamburgerMenu = ({ resetSearch }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [categoriesOpen, setCategoriesOpen] = useState(false);
 
-    /*
     const [categories, setCategories] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
-
-    */
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -23,12 +20,10 @@ const HamburgerMenu = ({ resetSearch }) => {
         setIsOpen(false);
     };
 
-    /*
     const returnHomeOnClick = () => {
         closeOnClick();
         resetSearch();
     }
-    */
 
     const fetchCategories = async () => {
         setLoading(true);

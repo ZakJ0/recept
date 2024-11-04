@@ -60,7 +60,7 @@ const Categories = () => {
 
     return (
         <div className="category-page">
-            <h2>Category: {categoryName}</h2> {/* Add title with the selected category */}
+            <h2>{categoryName}!</h2>
 
             <div className="recipe-list">
                 {filteredRecipes.map((recipe) => (

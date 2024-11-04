@@ -25,7 +25,9 @@ const SearchBar = ({
 
     return (
         <div className="search-container">
-            <HamburgerMenu />
+            <HamburgerMenu /> {/*Ta bort på större skärmar */}
+
+            
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
@@ -51,6 +53,7 @@ const SearchBar = ({
                 onSelectTheme={onThemeSelect}
                 availableThemes={availableThemes} // Pass available themes to ThemeFilter
             />
+            
         </div>
     );
 };
