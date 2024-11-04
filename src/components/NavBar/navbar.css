@@ -1,4 +1,5 @@
 .navbar {
+  font-size: 1.1rem;
   display: none; /* Dölj navbaren i mobilvy som standard */
   margin: 8px auto;
   padding: 0px;
@@ -7,7 +8,7 @@
 }
 
 .nav-links {
-  margin-left: 16px;
+  margin-left: 24px;
   list-style: none;
   display: flex; /* Använd flexbox för att styra layouten */
   gap: 1rem;
@@ -17,7 +18,7 @@
 .nav-links .right {
   position: absolute; /* Gör "Om oss" absolut */
   right: 0; /* Placera den till höger */
-  margin-right: 56px;
+  margin-right: 80px;
 }
 
 .nav-links li a {
@@ -43,12 +44,13 @@ span {
 
 .category-List:hover {
   color: rgb(226, 123, 63);
-  cursor: pointer;
+  
 }
 
 .dropdown {
   position: relative;
   display: inline-block;
+  cursor: pointer;
 }
 
 .dropdown-content {
@@ -80,5 +82,26 @@ span {
 
   .navbar {
       display: flex;
+  }
+}
+
+@media (min-width: 1024px) {
+  .navbar {
+    margin: 16px auto;
+    padding: 0 32px; 
+  }
+
+  .nav-links {
+    margin-left: 32px;
+    gap: 1.5rem;
+  }
+
+  .nav-links .right {
+    margin-right: 156px;
+  }
+
+  .nav-links li a {
+    padding: 10px 20px;
+    font-size: 1.2rem;
   }
 }
