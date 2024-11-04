@@ -8,6 +8,7 @@ import NavBar from '../components/NavBar/NavBar.jsx';
 import HomePage from '../components/homePage/HomePage.jsx';
 import Categories from '../components/category/Category.jsx';
 import AboutUs from './AboutUs/AboutUs.jsx';
+import Footer from './Footer/Footer.jsx';
 
 
 function App() {
@@ -88,6 +89,7 @@ function App() {
                     <Route path='/aboutus' element={<AboutUs/>}/>
                     <Route path="/category/:categoryName" element={<Categories/>}/>
                 </Routes>
+                <Footer />
             </div>
         </Router>
     );
