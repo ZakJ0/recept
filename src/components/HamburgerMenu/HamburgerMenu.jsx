@@ -25,8 +25,11 @@ const HamburgerMenu = ({ resetSearch }) => {
         resetSearch();
     }
 
+    const ignoredCategories = ['Ekofood', 'Fredagsmys', 'Speed-lunch', 'Junkfood', 'Fitnessmeal'];
+
     const fetchCategories = async () => {
         setLoading(true);
+        setError(null);
         try {
             const response = await fetch('https://recept7-famul.reky.se/categories');
             if (!response.ok) {

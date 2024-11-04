@@ -7,18 +7,25 @@ const Navbar = ({ resetSearch }) => {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
     useEffect(() => {
-        const fetchCategories = async () => {
-            try {
-                const response = await fetch('https://recept7-famul.reky.se/categories');
-                if (!response.ok) {
-                    throw new Error('Failed to fetch categories');
-                }
-                const data = await response.json();
-                setCategories(data);
-            } catch (error) {
-                console.error('Failed to fetch categories:', error);
+    const ignoredCategories = ['Ekofood', 'Fredagsmys', 'Speed-lunch', 'Junkfood', 'Fitnessmeal'];
+
+    const fetchCategories = async () => {
+        setLoading(true);
+        setError(null);
+        try {
+            const response = await fetch('https://recept7-famul.reky.se/categories');
+            if (!response.ok) {
+                throw new Error('Failed to fetch categories');
             }
-        };
+            const data = await response.json();
+            const filteredCategories = data.filter(category => !ignoredCategories.includes(category.name));
+            setCategories(filteredCategories);
+        } catch (err) {
+            setError(err.message);
+        } finally {
+            setLoading(false);
+        }
+    };
 
         fetchCategories();
     }, []);
