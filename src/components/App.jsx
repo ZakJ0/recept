@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
+
 import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
 import '../css/App.css';
 import SearchBar from '../components/SearchBar/SearchBar.jsx';
-import Header from './Header';
-import NavBar from '../components/NavBar';
+import Header from '../components/Header/Header.jsx';
 import HomePage from '../components/homePage/HomePage.jsx';
 import Categories from '../components/category/Category.jsx';
 import AboutUs from './AboutUs/AboutUs.jsx';
-import Footer from './Footer/Footer.jsx';
-import RecipeForm from "./recipeForm/RecipeForm.jsx";
+
 
 function App() {
     const [searchQuery, setSearchQuery] = useState('');
@@ -89,7 +88,6 @@ function App() {
                     />}/>
                     <Route path='/aboutus' element={<AboutUs/>}/>
                     <Route path="/category/:categoryName" element={<Categories/>}/>
-                    <Route path="/send-recipe" element={<RecipeForm/>}/>
                 </Routes>
             </div>
         </Router>
