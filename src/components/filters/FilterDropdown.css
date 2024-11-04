@@ -1,0 +1,83 @@
+.filter-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Filter Button */
+.filter-button {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.filter-button:hover {
+    background-color: #2980b9;
+}
+
+/* Filter Content */
+.filter-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    margin-top: 5px;
+    z-index: 1;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Labels for each filter item */
+.filter-content label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .filter-button {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    .filter-content {
+        padding: 15px;
+        min-width: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .filter-dropdown {
+        width: 100%; /* Make dropdown take the full width */
+    }
+
+    .filter-button {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .filter-content {
+        position: static; /* Position below the button */
+        width: 100%;
+        box-shadow: none;
+        padding: 10px;
+        margin-top: 10px;
+        border-radius: 0;
+    }
+
+    .filter-content label {
+        font-size: 14px;
+    }
+}

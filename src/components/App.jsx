@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
 import '../css/App.css';
 import SearchBar from '../components/SearchBar/SearchBar.jsx';
-import Header from '../components/Header/Header.jsx';
-// import NavBar from '../components/NavBar';
+import Header from './Header';
+import NavBar from '../components/NavBar';
 import HomePage from '../components/homePage/HomePage.jsx';
 import Categories from '../components/category/Category.jsx';
 import AboutUs from './AboutUs/AboutUs.jsx';
@@ -74,6 +74,12 @@ function App() {
                     selectedThemes={selectedThemes}
                     availableThemes={availableThemes}
                 />
+                <nav>
+                    {/* Other nav links */}
+                    <Link to="/send-recipe">
+                        <button>Send Us Your Recipe</button>
+                    </Link>
+                </nav>
                 <Routes>
                     <Route path="/" element={<HomePage
                         searchQuery={searchQuery}
@@ -85,7 +91,6 @@ function App() {
                     <Route path="/category/:categoryName" element={<Categories/>}/>
                     <Route path="/send-recipe" element={<RecipeForm/>}/>
                 </Routes>
-                <Footer />
             </div>
         </Router>
     );
