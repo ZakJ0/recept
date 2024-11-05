@@ -1,3 +1,4 @@
+Numrerna hänvisar till productloggen!
 1.0 Skapa layout/startisda:
 Komponent: HomePage
 
