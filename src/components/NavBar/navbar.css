@@ -3,7 +3,6 @@
   display: none; /* Dölj navbaren i mobilvy som standard */
   margin: 8px auto;
   padding: 0px;
-  width: calc(100%);
   position: relative; /* Gör navbaren relativ */
 }
 
@@ -110,4 +109,18 @@ span.category-list {
     padding: 10px 20px;
     font-size: 1.2rem;
   }
+
+  .category-list {
+    font-size: 1.2rem; /* Samma som övriga länkar */
+    font-weight: 500; /* Justera vikten för att matcha */
+    padding: 10px 20px; /* Samma padding som andra länkar */
+    text-decoration: none; /* Om det är en länk */
+    color: black; /* Ärva färg från föräldern */
+}
+
+.category-list:hover {
+  color: gray;
+  
+}
+
 }

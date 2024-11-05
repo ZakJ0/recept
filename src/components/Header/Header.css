@@ -31,7 +31,7 @@ header::before {
 h1 {
     position: relative;
     z-index: 2;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     letter-spacing: 4px;
     margin: 0;
     padding: 0;

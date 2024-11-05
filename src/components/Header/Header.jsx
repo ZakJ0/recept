@@ -4,7 +4,7 @@ import './Header.css';
 function Header() {
     return (
         <header>
-            <h1>Food galaxy</h1>
+            <h1>HEMMAKOCKEN</h1>
         </header>
     );
 }
