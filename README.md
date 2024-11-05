@@ -45,12 +45,12 @@ Komponent: Category.knapp som visas på homepage där man kan skrolla på alla k
 Komponent: Comment. Visas på RecipeDetail (popupsidan) och man kan skicka in en kommentar till api
 .
 
+{Alla dessa filter ligger i component/filters. Egna komponenter till varje som är: ThemeFilter.FilterDropDown. Filterdropdown har vi lagt till i SearchBar. och sen använder vi de komponenterna även i app.jsx.;
 5.4 Flik med fält för betyg, svårighetsgrad och teman
 
 1.6.1 Skapa filter på teman
-Alla dessa filter ligger i component/filters. Egna komponenter till varje som är: ThemeFilter.
 
 1.6.2 Skapa filter på svårighetsgrad
-FilterDropDown. Filterdropdown har vi lagt till i SearchBar. och sen använder vi de komponenterna även i app.jsx.
 
-1.6.3 Skapa filter på betyg
+1.6.3 Skapa filter på betyg}
+
