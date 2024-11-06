@@ -92,11 +92,11 @@
 
 .side-menu a {
     color: white;
-    text-decoration: none; /* Tar bort understrykning */
+    text-decoration: none;
 }
 
 .side-menu a:hover {
-    color: rgb(226, 123, 63); /* Byt gärna ut mot önskad hover-färg */
+    color: rgb(226, 123, 63);
 }
 
 .side-menu ul {

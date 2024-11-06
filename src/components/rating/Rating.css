@@ -1,7 +1,6 @@
-/* Rating and Difficulty Section Styling */
 .rating-difficulty-section {
     display: flex;
-    align-items: center; /* Align rating stars and difficulty vertically */
+    align-items: center;
     gap: 10px;
 }
 

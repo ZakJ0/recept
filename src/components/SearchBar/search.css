@@ -1,4 +1,3 @@
-/* Container for the search bar */
 .search-container {
     display: flex;
     align-items: center;
@@ -11,84 +10,75 @@
     box-sizing: border-box;
 }
 
-/* Form styling */
 .search-container form {
     display: flex;
     align-items: center;
     width: 100%;
 }
 
-/* Styling for the search input field */
 .search-container input[type="text"] {
     padding: 10px 15px;
     font-size: 1em;
-    border-radius: 25px 0 0 25px; /* Rounded left side */
-    border: 2px solid orange; /* Border color matches buttons */
+    border-radius: 25px 0 0 25px;
+    border: 2px solid orange;
     outline: none;
     transition: border-color 0.3s ease;
-    width: 100%; /* Fill available space */
+    width: 100%;
 }
 
-/* Unified styling for the "Sök" and "Filter" buttons */
 .search-container button.search-btn,
 .search-container button.filter-btn {
-    padding: 10px 20px; /* Unified padding */
-    font-size: 1em; /* Same font size */
-    background-color: #e67e22; /* Unified orange background */
-    color: white; /* Text color */
-    border: 2px solid #e67e22; /* Unified border color */
-    cursor: pointer; /* Pointer cursor */
+    padding: 10px 20px;
+    font-size: 1em; 
+    background-color: #e67e22;
+    color: white;
+    border: 2px solid #e67e22;
+    cursor: pointer;
     transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-/* Remove rounded corners between the two buttons */
 .search-container button.search-btn {
-    border-radius: 25px 0 0 25px; /* Rounded left side */
+    border-radius: 25px 0 0 25px;
 }
 
 .search-container button.filter-btn {
-    border-radius: 0 25px 25px 0; /* Rounded right side only */
+    border-radius: 0 25px 25px 0;
 }
 
-/* Hover effect for both buttons */
 .search-container button:hover {
-    background-color: #d95f16; /* Darker orange on hover */
-    border-color: #d95f16; /* Match border color on hover */
+    background-color: #d95f16;
+    border-color: #d95f16;
 }
 
-/* Responsive Adjustments */
 @media (max-width: 768px) {
-    /* Stack elements vertically for smaller screens */
     .search-container {
-        flex-direction: row; /* Keep row direction for iPads */
+        flex-direction: row;
         align-items: center;
     }
 
     .search-container form {
-        flex-direction: row; /* Keep form elements in a row */
-        width: auto; /* Auto width for form */
+        flex-direction: row;
+        width: auto;
     }
 
     .search-container input[type="text"] {
-        border-radius: 25px 0 0 25px; /* Keep left side rounded */
-        margin-right: 0; /* Remove margin right */
-        flex-grow: 1; /* Allow input to grow */
-        margin-bottom: 0; /* No bottom margin */
+        border-radius: 25px 0 0 25px;
+        margin-right: 0;
+        flex-grow: 1;
+        margin-bottom: 0;
     }
 
-    /* Align buttons next to the input field */
     .search-container button.search-btn,
     .search-container button.filter-btn {
-        width: auto; /* Auto width for buttons */
-        margin-left: -2px; /* Adjust to avoid double border on buttons */
+        width: auto;
+        margin-left: -2px;
     }
 }
 
 @media (max-width: 480px) {
-    /* Smaller font and padding on very small screens */
     .search-container input[type="text"],
     .search-container button {
-        font-size: 0.73em; /* Same font size */
-        padding: 8px 10px; /* Consistent padding */
+        font-size: 0.73em;
+        padding: 8px 10px;
     }
 }

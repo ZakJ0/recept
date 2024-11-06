@@ -1,10 +1,9 @@
 import React from 'react';
 import './ThemeFilter.css'
+
 const ThemeFilter = ({ selectedThemes, onSelectTheme, availableThemes }) => {
-    // Define the specific themes you want to show in the filter
     const allowedThemes = ['Ekofood', 'Junkfood', 'Speed-lunch', 'Fitnessmeal', 'Fredagsmys'];
 
-    // Filter the available themes to only include the allowed themes
     const filteredThemes = availableThemes.filter(theme => allowedThemes.includes(theme));
 
     const handleChange = (theme) => {

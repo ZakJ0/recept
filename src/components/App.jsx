@@ -50,9 +50,8 @@ function App() {
                 }
                 const data = await response.json();
 
-                // Extract unique categories (themes) from the recipes data
                 const uniqueThemes = [...new Set(data.flatMap(recipe => recipe.categories))];
-                setAvailableThemes(uniqueThemes); // Set the available themes
+                setAvailableThemes(uniqueThemes);
             } catch (err) {
                 console.error(err.message);
             }

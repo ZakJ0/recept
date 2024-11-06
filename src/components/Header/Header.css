@@ -14,7 +14,6 @@ header {
     background-repeat: no-repeat;
 }
 
-/* Gradient fade from #4B4E4B in header */
 header::before {
     content: '';
     position: absolute;
@@ -23,40 +22,39 @@ header::before {
     right: 0;
     bottom: 0;
     background-image: linear-gradient(
-            to bottom, /* #4B4E4B fully opaque at the top */
-            rgba(153, 151, 149, 0.6), /* Slightly transparent for mid-gradient */
+            to bottom,
+            rgba(153, 151, 149, 0.6),
             rgba(153, 151, 149, 0.3),
-            rgba(153, 151, 149, 1)/* More transparent near the bottom */
+            rgba(153, 151, 149, 1)
     );
     z-index: 1;
     pointer-events: none;
 }
 
 header h1 {
-    font-size: 5rem; /* Make the text larger */
-    line-height: 1.2; /* Adjust line height for better spacing */
-    text-align: center; /* Center the text */
-    color: darkgoldenrod; /* Use your desired text color */
-    margin: 0 auto; /* Center horizontally */
+    font-size: 5rem;
+    line-height: 1.2;
+    text-align: center;
+    color: darkgoldenrod;
+    margin: 0 auto;
     padding: 0;
     max-width: 100%;
     flex-shrink: 1;
     flex-grow: 1;
 }
 
-/* You can also increase the size of other text elements within the header */
 header p {
-    font-size: 1.5rem; /* Example for paragraph text */
-    color: white; /* Change as needed */
+    font-size: 1.5rem;
+    color: white;
 }
 
 @media (max-width: 480px) {
     header h1 {
-        font-size: 2.5rem; /* Further reduced size for very small screens */
+        font-size: 2.5rem;
     }
 
     header p {
-        font-size: 0.9rem; /* Smaller paragraph size for very small screens */
+        font-size: 0.9rem;
     }
 }
 

@@ -14,7 +14,6 @@ footer {
     background-repeat: no-repeat;
 }
 
-/* Gradient fade from #4B4E4B in header */
 footer::before {
     content: '';
     position: absolute;
@@ -23,10 +22,10 @@ footer::before {
     right: 0;
     bottom: 0;
     background-image: linear-gradient(
-            to bottom, /* #4B4E4B fully opaque at the top */
-            rgba(153, 151, 149, 1), /* Slightly transparent for mid-gradient */
+            to bottom,
+            rgba(153, 151, 149, 1),
             rgba(153, 151, 149, 0.3),
-            rgba(153, 151, 149, 0.6)/* More transparent near the bottom */
+            rgba(153, 151, 149, 0.6)
     );
     z-index: 1;
     pointer-events: none;

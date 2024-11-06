@@ -80,7 +80,6 @@ const Comments = ({ recipeId }) => {
             setName('');
             setError(null);
 
-            // Set isSubmitted to true to show the thank you message
             setIsSubmitted(true);
         } catch (error) {
             setError(error.message);
@@ -114,21 +113,21 @@ const Comments = ({ recipeId }) => {
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         required
-                        disabled={isSubmitting} // Disable input while submitting
+                        disabled={isSubmitting} 
                     />
                     <textarea
                         placeholder="Lägg till en kommentar"
                         value={newComment}
                         onChange={(e) => setNewComment(e.target.value)}
                         required
-                        disabled={isSubmitting} // Disable textarea while submitting
+                        disabled={isSubmitting} 
                     ></textarea>
                     <button type="submit" disabled={isSubmitting}>
                         {isSubmitting ? 'Skickar...' : 'Skicka'}
                     </button>
                 </form>
             ) : (
-                <p>Tack för din kommentar!</p> // Thank you message after submission
+                <p>Tack för din kommentar!</p> 
             )}
         </div>
     );
