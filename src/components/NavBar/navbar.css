@@ -91,8 +91,9 @@ span.category-list {
       display: flex;
   }
   .category-list {
-
-    font-size: 1.2rem; /* Samma som övriga länkar */
+    letter-spacing: normal;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 2rem; /* Samma som övriga länkar */
     font-weight: 500; /* Justera vikten för att matcha */
     padding: 10px 20px; /* Samma padding som andra länkar */
     text-decoration: none; /* Om det är en länk */
@@ -122,11 +123,11 @@ span.category-list {
   }
 
   .category-list {
-
+    letter-spacing: normal;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 2rem !important; /* Samma som övriga länkar */
     font-weight: 500; /* Justera vikten för att matcha */
     padding: 10px 20px; /* Samma padding som andra länkar */
-    text-decoration: none; /* Om det är en länk */
     color: goldenrod; /* Ärva färg från föräldern */
 }
 

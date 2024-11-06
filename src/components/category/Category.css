@@ -8,6 +8,8 @@
 }
 
 h2 {
-    margin: 24px;
-    padding: 16px;
+    margin: 0;
+    padding: 0;
+    letter-spacing: normal;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
