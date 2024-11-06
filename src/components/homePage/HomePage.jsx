@@ -44,13 +44,10 @@ const HomePage = ({ searchQuery, selectedDifficulties, selectedRatings, selected
     }, []);
 
     useEffect(() => {
-        // Filter recipes based on selected filters (excluding title search)
         const applyFilters = () => {
             const filtered = recipes.filter((recipe) => {
-                // Create a regular expression with word boundaries for exact word matching
                 const searchTermRegex = new RegExp(`\\b${searchQuery.toLowerCase()}\\b`);
 
-                // Check for matches in categories, ingredients, and instructions only
                 const matchesSearchTerm =
                     recipe.categories.some((category) =>
                         searchTermRegex.test(category.toLowerCase())
@@ -79,12 +76,9 @@ const HomePage = ({ searchQuery, selectedDifficulties, selectedRatings, selected
         applyFilters();
     }, [searchQuery, selectedDifficulties, selectedRatings, selectedThemes, recipes]);
 
-
-
-    // Close recipe details and reload the page
     const closeDetails = () => {
         setSelectedRecipe(null);
-        window.location.reload();  // Reload the page when closing the details
+        window.location.reload();
     };
 
     if (loading) return <p>Laddar...</p>;

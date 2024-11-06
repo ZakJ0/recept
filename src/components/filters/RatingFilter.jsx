@@ -1,24 +1,21 @@
 import React from 'react';
 import './RatingFilter.css'
 const RatingFilter = ({ selectedRatings, onSelectRating }) => {
-    const ratings = [5, 4, 3]; // Available ratings
+    const ratings = [5, 4, 3];
 
     const handleChange = (rating) => {
         if (selectedRatings.includes(rating)) {
-            // If already selected, remove it
             onSelectRating(selectedRatings.filter(r => r !== rating));
         } else {
-            // Otherwise, add it
             onSelectRating([...selectedRatings, rating]);
         }
     };
 
     const handleUnratedChange = () => {
-        // Toggle the "Unrated" option
         if (selectedRatings.includes(null)) {
-            onSelectRating(selectedRatings.filter(r => r !== null)); // Remove "Unrated"
+            onSelectRating(selectedRatings.filter(r => r !== null));
         } else {
-            onSelectRating([...selectedRatings, null]); // Add "Unrated"
+            onSelectRating([...selectedRatings, null]);
         }
     };
 
@@ -32,24 +29,24 @@ const RatingFilter = ({ selectedRatings, onSelectRating }) => {
                         checked={selectedRatings.includes(rating)}
                         onChange={() => handleChange(rating)}
                     />
-                    <span className="rating-badge">{Array(rating).fill('★').join('')}</span> {/* Display stars based on rating */}
+                    <span className="rating-badge">{Array(rating).fill('★').join('')}</span>
                 </label>
             ))}
 
             <label className="rating-label">
                 <input
                     type="checkbox"
-                    checked={selectedRatings.includes(null)} // Check if "Unrated" is selected
+                    checked={selectedRatings.includes(null)}
                     onChange={handleUnratedChange}
                 />
-                <span className="rating-badge">Unrated</span> {/* Display "Unrated" option */}
+                <span className="rating-badge">Unrated</span>
             </label>
 
             <label className="rating-label">
                 <input
                     type="checkbox"
                     checked={selectedRatings.length === 0}
-                    onChange={() => onSelectRating([])} // Clear all ratings if "All" is checked
+                    onChange={() => onSelectRating([])}
                 />
                 <span className="rating-badge">All Ratings</span>
             </label>

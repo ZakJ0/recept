@@ -1,20 +1,18 @@
 .difficulty-filter {
     display: flex;
     align-items: center;
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
-    gap: 8px; /* Add spacing between items when wrapping */
-    justify-content: flex-start; /* Align items to the left by default */
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: flex-start;
 }
 
-/* Label styling */
 .difficulty-label {
     margin-right: 10px;
     display: inline-flex;
     align-items: center;
-    font-weight: 600; /* Optional: Make the label text a bit bolder for readability */
+    font-weight: 600;
 }
 
-/* Badge styling */
 .difficulty-badge {
     display: inline-block;
     padding: 4px 8px;
@@ -27,49 +25,45 @@
     transition: background-color 0.3s ease, transform 0.1s ease;
 }
 
-/* Hover effect */
 .difficulty-badge:hover {
     background-color: #ddd;
-    transform: scale(1.05); /* Slightly enlarge on hover for better interactivity */
+    transform: scale(1.05);
 }
 
-/* Checkbox styling */
 .difficulty-label input[type="checkbox"] {
     margin-right: 4px;
-    cursor: pointer; /* Pointer cursor for checkboxes */
+    cursor: pointer;
 }
 
-/* Responsive Adjustments for medium screens */
 @media (max-width: 768px) {
     .difficulty-filter {
-        justify-content: center; /* Center items on medium screens */
+        justify-content: center;
     }
 
     .difficulty-badge {
-        font-size: 13px; /* Slightly smaller font size */
-        padding: 4px 6px; /* Adjust padding for medium screens */
+        font-size: 13px;
+        padding: 4px 6px;
         margin-left: 4px;
     }
 }
 
-/* Responsive Adjustments for small screens */
 @media (max-width: 480px) {
     .difficulty-filter {
-        flex-direction: column; /* Stack items vertically on small screens */
-        align-items: flex-start; /* Align items to the left */
-        gap: 4px; /* Smaller gap for compact view */
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
     }
 
     .difficulty-badge {
-        font-size: 12px; /* Further reduce font size */
-        padding: 3px 5px; /* Reduce padding for compactness */
-        margin-left: 0; /* Remove left margin to save space */
-        width: 100%; /* Full width for readability on small screens */
-        text-align: center; /* Center-align text within badge */
+        font-size: 12px;
+        padding: 3px 5px;
+        margin-left: 0;
+        width: 100%;
+        text-align: center;
     }
 
     .difficulty-label {
-        width: 100%; /* Make label full-width for small screens */
-        font-size: 14px; /* Slightly larger text for readability */
+        width: 100%;
+        font-size: 14px;
     }
 }

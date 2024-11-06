@@ -1,20 +1,18 @@
 import React, { useState } from 'react';
-import './RecipeDetail.css'; // Import the CSS file for styling the recipe details
+import './RecipeDetail.css';
 import DifficultyLevel from '../difficultyLevel/DifficultyLevel.jsx';
 import Rating from '../rating/Rating.jsx';
 import Comments from "../comments/Comment.jsx";
 
 const RecipeDetail = ({ selectedRecipe, closeDetails, ratings }) => {
-    const [isRatingSubmitted, setIsRatingSubmitted] = useState(false); // Track if rating was submitted
+    const [isRatingSubmitted, setIsRatingSubmitted] = useState(false);
 
     if (!selectedRecipe) return null;
 
-    // Handler for when the user submits a rating
     const handleRatingSubmit = () => {
         setIsRatingSubmitted(true);
     };
 
-    // Reset the rating state when closing the modal
     const handleModalClose = () => {
         setIsRatingSubmitted(false);
         closeDetails();
@@ -22,7 +20,7 @@ const RecipeDetail = ({ selectedRecipe, closeDetails, ratings }) => {
 
     return (
         <>
-            <div className="overlay" onClick={handleModalClose} /> {/* Close modal on overlay click */}
+            <div className="overlay" onClick={handleModalClose} />
             <div className="recipe-details">
                 <button className="close-button" onClick={handleModalClose}>✖</button>
                 <h2>{selectedRecipe.title}</h2>
@@ -52,12 +50,11 @@ const RecipeDetail = ({ selectedRecipe, closeDetails, ratings }) => {
                 </div>
 
                 <div className="rating-difficulty-section">
-                    {/* Use the Rating component for the detailed view */}
                     <Rating
                         recipeId={selectedRecipe._id}
-                        ratingValue={ratings[selectedRecipe._id]} // Current rating
-                        isStatic={isRatingSubmitted}  // Disable if already submitted
-                        onRatingSubmit={handleRatingSubmit}  // Pass submit handler
+                        ratingValue={ratings[selectedRecipe._id]}
+                        isStatic={isRatingSubmitted}
+                        onRatingSubmit={handleRatingSubmit}
                     />
 
                     <DifficultyLevel timeInMins={selectedRecipe.timeInMins} />
@@ -67,8 +64,6 @@ const RecipeDetail = ({ selectedRecipe, closeDetails, ratings }) => {
                     <span>Tid: {selectedRecipe.timeInMins} minuter</span>
                     <span>Pris: {selectedRecipe.price} SEK</span>
                 </div>
-
-                {/* Comments section */}
                 <Comments recipeId={selectedRecipe._id} />
             </div>
         </>

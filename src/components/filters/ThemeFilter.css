@@ -5,7 +5,7 @@
 }
 
 .theme-label {
-    margin-right: 10px; /* Space between each theme */
+    margin-right: 10px;
     display: inline-flex;
     align-items: center;
 }
@@ -14,19 +14,18 @@
     display: inline-block;
     padding: 4px 8px;
     border-radius: 12px;
-    background-color: #e0f7fa; /* Light background for themes */
-    color: #00796b; /* Darker color for text */
-    margin-left: 6px; /* Space between checkbox and text */
+    background-color: #e0f7fa;
+    color: #00796b;
+    margin-left: 6px;
     font-size: 14px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 .theme-badge:hover {
-    background-color: #b2ebf2; /* Change color on hover */
+    background-color: #b2ebf2;
 }
 
-/* Adjust checkbox appearance if needed */
 .theme-label input[type="checkbox"] {
     margin-right: 4px;
 }

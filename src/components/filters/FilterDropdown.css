@@ -3,12 +3,11 @@
     display: inline-block;
 }
 
-/* Filter Button */
 .filter-button {
     background-color: #e67e22;
     color: white;
     padding: 10px 15px;
-    font-size: 10px; /* Reduced font size for consistency with Sök button */
+    font-size: 10px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -16,10 +15,9 @@
 }
 
 .filter-button:hover {
-    background-color: #d95f16; /* Optional: Slightly darker on hover for better feedback */
+    background-color: #d95f16;
 }
 
-/* Filter Content */
 .filter-content {
     position: absolute;
     top: 100%;
@@ -36,30 +34,28 @@
     gap: 10px;
 }
 
-/* Labels for each filter item */
 .filter-content label {
     display: flex;
     align-items: center;
     gap: 5px;
 }
 
-/* Adjust for mid-sized screens (e.g., tablets) */
 @media (max-width: 1024px) {
     .filter-content {
-        position: static; /* Align below the button */
+        position: static;
         width: 100%;
-        box-shadow: none; /* Remove box shadow */
+        box-shadow: none;
         padding: 15px;
         border-radius: 8px;
         margin-top: 10px;
     }
 }
 
-/* Responsive Adjustments */
+
 @media (max-width: 768px) {
     .filter-button {
         padding: 8px 12px;
-        font-size: 11px; /* Match smaller font size */
+        font-size: 11px;
     }
 
     .filter-content {
@@ -69,7 +65,6 @@
     }
 }
 
-/* Mobile adjustments for screens up to 480px */
 @media (max-width: 480px) {
     .filter-dropdown {
         width: 100%;
@@ -78,12 +73,12 @@
     .filter-button {
         width: 100%;
         padding: 6px;
-        font-size: 6px; /* Same font size for mobile */
+        font-size: 6px;
         text-align: center;
     }
 
     .filter-content {
-        position: static; /* Position below the button */
+        position: static;
         width: 100%;
         box-shadow: none;
         padding: 10px;

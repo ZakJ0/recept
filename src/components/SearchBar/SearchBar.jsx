@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './search.css';
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu.jsx";
 import FilterDropdown from "../filters/FilterDropdown.jsx";
-// Import the new FilterDropdown component
 
 const SearchBar = ({
                        onSearch,
@@ -18,13 +17,13 @@ const SearchBar = ({
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        onSearch(searchTerm); // Call the search function with the search term
-        setSearchTerm(''); // Reset the search term
+        onSearch(searchTerm);
+        setSearchTerm('');
     };
 
     return (
         <div className="search-container">
-            <HamburgerMenu/> {/* Hide this on larger screens using CSS */}
+            <HamburgerMenu/>
 
             <form onSubmit={handleSubmit}>
                 <input
@@ -35,7 +34,6 @@ const SearchBar = ({
                 />
                 <button type="submit" className="search-btn">Sök</button>
 
-                {/* Add the FilterDropdown button right next to "Sök" */}
                 <FilterDropdown
                     selectedDifficulties={selectedDifficulties}
                     onDifficultySelect={onDifficultySelect}

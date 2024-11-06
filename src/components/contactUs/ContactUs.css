@@ -1,7 +1,3 @@
-/* General Form Styling */
-
-
-/* Input Fields and Text Areas */
 input[type="text"],
 textarea {
     width: 100%;
@@ -21,13 +17,10 @@ textarea:focus {
     box-shadow: 0 0 5px rgba(0, 149, 255, 0.3);
 }
 
-
-
 button:hover {
-    background-color: #e5674a; /* Darker coral on hover */
+    background-color: #e5674a;
 }
 
-/* Success and Error Messages */
 .success,
 .error {
     text-align: center;
@@ -49,20 +42,17 @@ button:hover {
     border: 1px solid #f5c6cb;
 }
 
-/* Placeholder Styling */
 input::placeholder,
 textarea::placeholder {
     color: #888;
     font-style: italic;
 }
 
-/* Form Field Spacing */
 input[type="text"]:not(:last-of-type),
 textarea:not(:last-of-type) {
     margin-bottom: 15px;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
     form {
         padding: 20px;

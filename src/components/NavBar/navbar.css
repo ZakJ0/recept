@@ -1,22 +1,22 @@
 .navbar {
   font-size: 1.1rem;
-  display: none; /* Dölj navbaren i mobilvy som standard */
+  display: none;
   margin: 8px auto;
   padding: 0px;
-  position: relative; /* Gör navbaren relativ */
+  position: relative;
 }
 
 .nav-links {
   margin-left: 24px;
   list-style: none;
-  display: flex; /* Använd flexbox för att styra layouten */
+  display: flex;
   gap: 1rem;
-  align-items: center; /* Centrerar länkarna vertikalt */
+  align-items: center;
 }
 
 .nav-links .right {
-  position: absolute; /* Gör "Om oss" absolut */
-  right: 0; /* Placera den till höger */
+  position: absolute;
+  right: 0; 
   margin-right: 80px;
 }
 
@@ -35,9 +35,8 @@ span {
 }
 
 span.category-list {
-  display: inline-block; /* Gör att det bara tar upp så mycket utrymme som behövs */
+  display: inline-block; 
 }
-
 
 .category-List {
   color: black;
@@ -111,11 +110,11 @@ span.category-list {
   }
 
   .category-list {
-    font-size: 1.2rem; /* Samma som övriga länkar */
-    font-weight: 500; /* Justera vikten för att matcha */
-    padding: 10px 20px; /* Samma padding som andra länkar */
-    text-decoration: none; /* Om det är en länk */
-    color: black; /* Ärva färg från föräldern */
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: black;
 }
 
 .category-list:hover {

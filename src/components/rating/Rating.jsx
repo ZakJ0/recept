@@ -3,12 +3,11 @@ import './Rating.css';
 
 
 const Rating = ({ recipeId, ratingValue, isStatic = false, onRatingSubmit }) => {
-    const [avgRating, setAvgRating] = useState(ratingValue || 0); // Default to passed rating value
+    const [avgRating, setAvgRating] = useState(ratingValue || 0);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [submitted, setSubmitted] = useState(false);
 
-    // Fetch the average rating when the component mounts or when recipeId changes
     useEffect(() => {
         if (!recipeId) {
             setError('Invalid recipe ID');
@@ -23,7 +22,7 @@ const Rating = ({ recipeId, ratingValue, isStatic = false, onRatingSubmit }) => 
                 }
 
                 const recipeData = await response.json();
-                setAvgRating(recipeData.avgRating || 0); // Use avgRating from API or default to 0
+                setAvgRating(recipeData.avgRating || 0);
             } catch (err) {
                 setError(err.message);
             } finally {
@@ -34,12 +33,10 @@ const Rating = ({ recipeId, ratingValue, isStatic = false, onRatingSubmit }) => 
         fetchAvgRating();
     }, [recipeId]);
 
-    // Handle rating submission
     const submitRating = async (ratingValue) => {
-        if (!recipeId || ratingValue === undefined || submitted) return; // Exit if already submitted
+        if (!recipeId || ratingValue === undefined || submitted) return;
 
         try {
-            // Post the new rating
             const response = await fetch(
                 `https://recept7-famul.reky.se/recipes/${recipeId}/ratings`,
                 {
@@ -55,7 +52,6 @@ const Rating = ({ recipeId, ratingValue, isStatic = false, onRatingSubmit }) => 
                 throw new Error('Failed to submit rating');
             }
 
-            // Fetch updated average rating after the submission
             const updatedRecipeResponse = await fetch(
                 `https://recept7-famul.reky.se/recipes/${recipeId}`
             );
@@ -66,10 +62,9 @@ const Rating = ({ recipeId, ratingValue, isStatic = false, onRatingSubmit }) => 
 
             const updatedRecipe = await updatedRecipeResponse.json();
 
-            // Set the new average rating from the API response
             setAvgRating(updatedRecipe.avgRating || 0);
-            setSubmitted(true); // Mark as submitted
-            onRatingSubmit(); // Call the function to indicate rating submitted
+            setSubmitted(true); 
+            onRatingSubmit();
 
         } catch (err) {
             setError(err.message);
@@ -92,8 +87,8 @@ const Rating = ({ recipeId, ratingValue, isStatic = false, onRatingSubmit }) => 
                 <span
                     key={index}
                     className={`star ${avgRating >= index + 1 ? 'filled' : ''}`}
-                    onClick={() => !isStatic && submitRating(index + 1)} // Allow click if not static
-                    style={{ cursor: isStatic || submitted ? 'default' : 'pointer' }} // Disable pointer if already submitted
+                    onClick={() => !isStatic && submitRating(index + 1)}
+                    style={{ cursor: isStatic || submitted ? 'default' : 'pointer' }}
                 >
                     ★
                 </span>

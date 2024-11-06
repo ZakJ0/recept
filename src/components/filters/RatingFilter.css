@@ -5,7 +5,7 @@
 }
 
 .rating-label {
-    margin-right: 10px; /* Space between each rating */
+    margin-right: 10px;
     display: inline-flex;
     align-items: center;
 }
@@ -16,17 +16,16 @@
     border-radius: 12px;
     background-color: #f1f1f1;
     color: #333;
-    margin-left: 6px; /* Space between checkbox and text */
+    margin-left: 6px;
     font-size: 14px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 .rating-badge:hover {
-    background-color: #ddd; /* Change color on hover */
+    background-color: #ddd;
 }
 
-/* Adjust checkbox appearance if needed */
 .rating-label input[type="checkbox"] {
     margin-right: 4px;
 }
