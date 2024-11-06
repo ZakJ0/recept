@@ -2,14 +2,13 @@ import React, { useEffect, useState } from 'react';
 import './Comment.css';
 
 const Comments = ({ recipeId }) => {
-    const [comments, setComments] = useState([]); // Holds comments
+    const [comments, setComments] = useState([]);
     const [newComment, setNewComment] = useState('');
     const [name, setName] = useState('');
     const [error, setError] = useState(null);
-    const [isSubmitted, setIsSubmitted] = useState(false); // Tracks if form is submitted
-    const [isSubmitting, setIsSubmitting] = useState(false); // Tracks if form is being submitted
+    const [isSubmitted, setIsSubmitted] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
-    // Fetch comments when the component mounts or recipeId changes
     useEffect(() => {
         const fetchComments = async () => {
             try {
@@ -20,7 +19,7 @@ const Comments = ({ recipeId }) => {
                 const data = await response.json();
 
                 const formattedComments = data.map(comment => {
-                    return { ...comment }; // Adjust this based on your API response
+                    return { ...comment };
                 });
 
                 setComments(formattedComments);
@@ -34,32 +33,26 @@ const Comments = ({ recipeId }) => {
         }
     }, [recipeId]);
 
-    // Handle new comment submission
     const handleCommentSubmit = async (e) => {
         e.preventDefault();
 
-        // Trim inputs to remove leading/trailing spaces
         const trimmedName = name.trim();
         const trimmedComment = newComment.trim();
 
-        // Validate name
         if (trimmedName === '') {
             setError('Fyll i ditt namn!');
-            alert("Fyll i ditt namn!"); // Custom alert for empty name
+            alert("Fyll i ditt namn!");
             return;
         }
 
-        // Validate comment
         if (trimmedComment === '') {
             setError('Skriv en kommentar!');
-            alert("Skriv en kommentar!"); // Custom alert for empty comment
+            alert("Skriv en kommentar!");
             return;
         }
 
-        // Disable form while submitting
         setIsSubmitting(true);
 
-        // Generate local date (only the date, no time)
         const localDate = new Date().toLocaleDateString('sv-SE'); // Format: yyyy-mm-dd
 
         try {
@@ -68,7 +61,7 @@ const Comments = ({ recipeId }) => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                // Send the name with the date appended, and the comment separately
+
                 body: JSON.stringify({ comment: trimmedComment, name: `${localDate} ${trimmedName}` }),
             });
 
@@ -78,16 +71,14 @@ const Comments = ({ recipeId }) => {
 
             const addedComment = await response.json();
 
-            // Add the newly posted comment to the list
             setComments((prevComments) => [
                 ...prevComments,
-                { ...addedComment } // Include other properties as necessary
+                { ...addedComment }
             ]);
 
-            // Clear the input fields
             setNewComment('');
             setName('');
-            setError(null); // Clear any previous errors
+            setError(null);
 
             // Set isSubmitted to true to show the thank you message
             setIsSubmitted(true);

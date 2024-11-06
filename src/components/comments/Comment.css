@@ -14,7 +14,6 @@
     border-radius: 5px;
 }
 
-/* Style for comment form */
 .comment-form {
     margin-top: 20px;
     display: flex;
@@ -27,8 +26,8 @@
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    width: 100%; /* Make the input fields take full width */
-    box-sizing: border-box; /* Ensures padding doesn't break layout */
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .comment-form button {
@@ -45,39 +44,38 @@
     background-color: #2980b9;
 }
 
-/* Media queries for responsiveness */
 @media (max-width: 768px) {
     .comments-section li {
-        padding: 8px; /* Reduce padding on smaller screens */
-        font-size: 0.9rem; /* Adjust font size */
+        padding: 8px;
+        font-size: 0.9rem;
     }
 
     .comment-form input,
     .comment-form textarea {
-        padding: 8px; /* Reduce padding */
-        font-size: 0.9rem; /* Adjust font size for readability */
+        padding: 8px;
+        font-size: 0.9rem;
     }
 
     .comment-form button {
-        padding: 8px; /* Reduce button padding */
-        font-size: 0.9rem; /* Adjust button text size */
+        padding: 8px;
+        font-size: 0.9rem;
     }
 }
 
 @media (max-width: 480px) {
     .comments-section li {
-        padding: 6px; /* Further reduce padding for mobile */
-        font-size: 0.85rem; /* Adjust font size */
+        padding: 6px;
+        font-size: 0.85rem;
     }
 
     .comment-form input,
     .comment-form textarea {
-        padding: 6px; /* Further reduce padding */
-        font-size: 0.85rem; /* Adjust input text size */
+        padding: 6px;
+        font-size: 0.85rem;
     }
 
     .comment-form button {
-        padding: 6px; /* Reduce button padding further */
-        font-size: 0.85rem; /* Reduce button font size */
+        padding: 6px;
+        font-size: 0.85rem;
     }
 }
