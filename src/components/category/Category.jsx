@@ -5,16 +5,15 @@ import './Category.css';
 import RecipeDetail from "../RecipeDetail/RecipeDetail.jsx";
 
 const Categories = () => {
-    const { categoryName } = useParams(); // Get the categoryName from the URL
+    const { categoryName } = useParams();
     const [recipes, setRecipes] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [selectedRecipe, setSelectedRecipe] = useState(null);
     const [ratings, setRatings] = useState({});
-
-    // Fetch recipes function
+    
     const fetchRecipes = async () => {
-        setLoading(true); // Set loading to true before fetching new data
+        setLoading(true);
         try {
             const response = await fetch('https://recept7-famul.reky.se/recipes');
             if (!response.ok) {
@@ -32,12 +31,12 @@ const Categories = () => {
         } catch (err) {
             setError(err.message);
         } finally {
-            setLoading(false); // Set loading to false after fetching is done
+            setLoading(false);
         }
     };
 
     useEffect(() => {
-        fetchRecipes(); // Initial load
+        fetchRecipes();
     }, []);
 
     if (loading) return <p>Loading...</p>;
@@ -51,7 +50,6 @@ const Categories = () => {
         setSelectedRecipe(recipe);
     };
 
-    // Filter recipes by category
     const filteredRecipes = recipes.filter(recipe =>
         recipe.categories.some(category => category.toLowerCase() === categoryName.toLowerCase())
     );
