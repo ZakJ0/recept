@@ -92,11 +92,11 @@ span.category-list {
   .category-list {
     letter-spacing: normal;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 2rem; /* Samma som övriga länkar */
-    font-weight: 500; /* Justera vikten för att matcha */
-    padding: 10px 20px; /* Samma padding som andra länkar */
-    text-decoration: none; /* Om det är en länk */
-    color: goldenrod; /* Ärva färg från föräldern */
+    font-size: 2rem;
+    font-weight: 500;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: goldenrod;
   }
 }
 
