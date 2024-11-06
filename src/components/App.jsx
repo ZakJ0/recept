@@ -66,8 +66,6 @@ function App() {
             <div>
                 <Header/>
                 <NavBar resetSearch={resetSearch}/>
-                
-                
                 <SearchBar
                     onSearch={handleSearch}
                     onDifficultySelect={handleDifficultySelect}
