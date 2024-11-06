@@ -24,9 +24,8 @@ const SearchBar = ({
 
     return (
         <div className="search-container">
-            <HamburgerMenu /> {/*Ta bort på större skärmar */}
+            <HamburgerMenu/> {/* Hide this on larger screens using CSS */}
 
-            
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
@@ -34,21 +33,21 @@ const SearchBar = ({
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                 />
-                <button type="submit">Sök</button>
-            </form>
+                <button type="submit" className="search-btn">Sök</button>
 
-            {/* Use FilterDropdown instead of individual filters */}
-            <FilterDropdown
-                selectedDifficulties={selectedDifficulties}
-                onDifficultySelect={onDifficultySelect}
-                selectedRatings={selectedRatings}
-                onRatingSelect={onRatingSelect}
-                selectedThemes={selectedThemes}
-                onThemeSelect={onThemeSelect}
-                availableThemes={availableThemes}
-            />
-            
+                {/* Add the FilterDropdown button right next to "Sök" */}
+                <FilterDropdown
+                    selectedDifficulties={selectedDifficulties}
+                    onDifficultySelect={onDifficultySelect}
+                    selectedRatings={selectedRatings}
+                    onRatingSelect={onRatingSelect}
+                    selectedThemes={selectedThemes}
+                    onThemeSelect={onThemeSelect}
+                    availableThemes={availableThemes}
+                />
+            </form>
         </div>
+
     );
 };
 

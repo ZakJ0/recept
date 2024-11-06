@@ -2,95 +2,93 @@
 .search-container {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     width: calc(100% - 32px);
+    max-width: 600px;
     margin: 8px auto;
     padding: 8px;
-    background-color: white;
+    background-color: #999796;
     box-sizing: border-box;
-}
-
-/* Styling for the hamburger menu */
-.hamburger-menu {
-    margin-right: 8px;
 }
 
 /* Form styling */
 .search-container form {
     display: flex;
-    justify-content: center;
+    align-items: center;
     width: 100%;
-    max-width: 400px; /* Constrain width on larger screens */
 }
 
 /* Styling for the search input field */
 .search-container input[type="text"] {
     padding: 10px 15px;
     font-size: 1em;
-    border-radius: 25px 0 0 25px;
-    border: 2px solid gray;
+    border-radius: 25px 0 0 25px; /* Rounded left side */
+    border: 2px solid orange; /* Border color matches buttons */
     outline: none;
     transition: border-color 0.3s ease;
     width: 100%; /* Fill available space */
 }
 
-.search-container input[type="text"]:focus {
-    border-color: gray;
-}
-
-.search-container button {
-    padding: 10px 20px;
-    font-size: 1em;
-    background-color: gray;
-    color: white;
-    border: 2px solid gray;
-    border-radius: 0 25px 25px 0;
-    cursor: pointer;
+/* Unified styling for the "Sök" and "Filter" buttons */
+.search-container button.search-btn,
+.search-container button.filter-btn {
+    padding: 10px 20px; /* Unified padding */
+    font-size: 1em; /* Same font size */
+    background-color: #e67e22; /* Unified orange background */
+    color: white; /* Text color */
+    border: 2px solid #e67e22; /* Unified border color */
+    cursor: pointer; /* Pointer cursor */
     transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-.search-container button:hover {
-    background-color: #4521a9;
-    border-color: #4521a9;
+/* Remove rounded corners between the two buttons */
+.search-container button.search-btn {
+    border-radius: 25px 0 0 25px; /* Rounded left side */
 }
 
-/* Body content spacing to avoid overlap with the fixed search bar */
-.body-content {
-    margin-top: 100px;
+.search-container button.filter-btn {
+    border-radius: 0 25px 25px 0; /* Rounded right side only */
+}
+
+/* Hover effect for both buttons */
+.search-container button:hover {
+    background-color: #d95f16; /* Darker orange on hover */
+    border-color: #d95f16; /* Match border color on hover */
 }
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     /* Stack elements vertically for smaller screens */
     .search-container {
-        flex-direction: column;
-        align-items: stretch; /* Stretch to full width */
-        padding: 10px;
+        flex-direction: row; /* Keep row direction for iPads */
+        align-items: center;
     }
 
     .search-container form {
-        width: 100%; /* Full width for smaller screens */
+        flex-direction: row; /* Keep form elements in a row */
+        width: auto; /* Auto width for form */
     }
 
     .search-container input[type="text"] {
-        border-radius: 25px; /* Rounded corners on smaller screens */
-        margin-bottom: 10px; /* Add space below input field */
+        border-radius: 25px 0 0 25px; /* Keep left side rounded */
+        margin-right: 0; /* Remove margin right */
+        flex-grow: 1; /* Allow input to grow */
+        margin-bottom: 0; /* No bottom margin */
     }
 
-    .search-container button {
-        border-radius: 25px; /* Rounded corners for a unified look */
-        width: 100%; /* Full width button */
+    /* Align buttons next to the input field */
+    .search-container button.search-btn,
+    .search-container button.filter-btn {
+        width: auto; /* Auto width for buttons */
+        margin-left: -2px; /* Adjust to avoid double border on buttons */
     }
 }
 
 @media (max-width: 480px) {
-    .search-container {
-        padding: 8px; /* Smaller padding on very small screens */
-    }
-
+    /* Smaller font and padding on very small screens */
     .search-container input[type="text"],
     .search-container button {
-        font-size: 0.9em; /* Slightly smaller font size */
-        padding: 8px 10px;
+        font-size: 0.73em; /* Same font size */
+        padding: 8px 10px; /* Consistent padding */
     }
 }
