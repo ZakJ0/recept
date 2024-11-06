@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: #ecf0f1;
+    background-color: #ECE8E3;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
@@ -53,7 +53,7 @@
 }
 
 .view-recipe-button button {
-    background-color: #3498db;
+    background-color: #e67e22;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -64,7 +64,7 @@
 }
 
 .view-recipe-button button:hover {
-    background-color: #2980b9;
+    background-color: #e67e22;
 }
 
 
@@ -82,7 +82,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #f1f1f1; /* Change to a neutral background color */
+    background-color: #ECE9E4; /* Change to a neutral background color */
     color: #34495e; /* Set a neutral text color */
     padding: 10px;
     border-radius: 5px;

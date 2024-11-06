@@ -11,6 +11,7 @@ const DifficultyFilter = ({ selectedDifficulties, onSelectDifficulty }) => {
         }
     };
 
+
     return (
         <div className="difficulty-filter">
             <strong>Svårighetsgrad: </strong>

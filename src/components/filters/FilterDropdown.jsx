@@ -20,7 +20,7 @@ const FilterDropdown = ({
     return (
         <div className="filter-dropdown">
             <button className="filter-button" onClick={toggleDropdown}>
-                {isOpen ? 'Close Filters' : 'Open Filters'}
+                {isOpen ? 'Stäng Filter' : 'Öppna Filter'}
             </button>
 
             {isOpen && (

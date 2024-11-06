@@ -1,4 +1,11 @@
 /* Recipe List */
+/* Page Background */
+body {
+    background-color: #999796; /* Light grey background */
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
 .recipe-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid */

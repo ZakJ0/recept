@@ -32,7 +32,7 @@
 
 .comment-form button {
     padding: 10px;
-    background-color: #3498db;
+    background-color: #e67e22;
     color: white;
     border: none;
     border-radius: 5px;
@@ -41,7 +41,7 @@
 }
 
 .comment-form button:hover {
-    background-color: #2980b9;
+    background-color: #e67e22;
 }
 
 @media (max-width: 768px) {

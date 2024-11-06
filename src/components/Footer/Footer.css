@@ -2,19 +2,19 @@ footer {
     position: relative;
     color: black;
     text-align: left;
+    padding: 0 20px;
     overflow: visible;
     min-height: 240px;
     box-sizing: border-box;
     display: flex;
     align-items: center;
-    justify-content: center;
-
+    flex-wrap: nowrap;
     background-image: url('../../assets/images/backgroundheader.png');
     background-size: cover;
     background-repeat: no-repeat;
 }
 
-/* Gradient */
+/* Gradient fade from #4B4E4B in header */
 footer::before {
     content: '';
     position: absolute;
@@ -22,9 +22,16 @@ footer::before {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: linear-gradient(to top, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 1)); /* Toning */
+    background-image: linear-gradient(
+            to bottom, /* #4B4E4B fully opaque at the top */
+            rgba(153, 151, 149, 1), /* Slightly transparent for mid-gradient */
+            rgba(153, 151, 149, 0.3),
+            rgba(153, 151, 149, 0.6)/* More transparent near the bottom */
+    );
     z-index: 1;
+    pointer-events: none;
 }
+
 
 .footer-left, .footer-quote {
     flex: 2;
@@ -64,7 +71,7 @@ h4 {
     margin-top: 24px;
     margin-right: 40px;
     margin-bottom: 0;
-    
+
 }
 
 @media (min-width: 768px) {
@@ -85,10 +92,10 @@ h4 {
 @media (min-width: 1024px) {
 
     footer {
-    display: flex;
-    align-items: left;
-    justify-content: left;
-    background-position: center -150px;
+        display: flex;
+        align-items: left;
+        justify-content: left;
+        background-position: center -150px;
     }
 
     .footer-left {
@@ -104,7 +111,7 @@ h4 {
         margin-top: 24px;
         margin-right: 400px;
         margin-bottom: 32px;
-        
+
     }
-    
+
 }
