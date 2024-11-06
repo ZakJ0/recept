@@ -21,12 +21,13 @@
 }
 
 .nav-links li a {
+  color: goldenrod;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .nav-links li a:hover {
-  color: gray;
+  color: gold;
   cursor: pointer;
 }
 
@@ -111,15 +112,16 @@ span.category-list {
   }
 
   .category-list {
+
     font-size: 1.2rem; /* Samma som övriga länkar */
     font-weight: 500; /* Justera vikten för att matcha */
     padding: 10px 20px; /* Samma padding som andra länkar */
     text-decoration: none; /* Om det är en länk */
-    color: black; /* Ärva färg från föräldern */
+    color: goldenrod;; /* Ärva färg från föräldern */
 }
 
 .category-list:hover {
-  color: gray;
+  color: gold;
   
 }
 

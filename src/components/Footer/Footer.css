@@ -34,6 +34,7 @@ footer::before {
 
 
 .footer-left, .footer-quote {
+    color: goldenrod;
     flex: 2;
     margin-bottom: 24px;
     z-index: 2;
@@ -67,6 +68,7 @@ h4 {
 }
 
 .footer-quote {
+    color: goldenrod;
     font-style: italic;
     margin-top: 24px;
     margin-right: 40px;
