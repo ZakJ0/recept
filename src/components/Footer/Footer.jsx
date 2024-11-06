@@ -10,8 +10,8 @@ function Footer() {
                 <p>Trekantsvägen 1</p>
                 <p>117 43 Stockholm</p>
             </div>
-            <div class="footer-center">
-                <h3>"God mat skapar minnen, och varje recept är en chans att skapa något oförglömligt"</h3>
+            <div class="footer-quote">
+                <h4>"God mat skapar goda minnen"</h4>
             </div>        
         </footer>
     );
