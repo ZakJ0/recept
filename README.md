@@ -1,4 +1,5 @@
 Numrerna hänvisar till productloggen!
+
 1.0 Skapa layout/startisda:
 Komponent: HomePage
 
@@ -46,11 +47,23 @@ Komponent: Comment. Visas på RecipeDetail (popupsidan) och man kan skicka in en
 .
 
 {Alla dessa filter ligger i component/filters. Egna komponenter till varje som är: ThemeFilter.FilterDropDown. Filterdropdown har vi lagt till i SearchBar. och sen använder vi de komponenterna även i app.jsx.;
-5.4 Flik med fält för betyg, svårighetsgrad och teman
 
-1.6.1 Skapa filter på teman
+5.4 Flik med fält för betyg, svårighetsgrad och teman: FilterDropdown.jsx/FilterDropdown.css
 
-1.6.2 Skapa filter på svårighetsgrad
+1.6.1 Skapa filter på teman : ThemeFilter.jsx/ ThemeFilter.css 
 
-1.6.3 Skapa filter på betyg}
+1.6.2 Skapa filter på svårighetsgrad : DifficultyFilter.jsx/ DifficultyFilter.css
+
+1.6.3 Skapa filter på betyg  RatingFilter.jsx/RatingFilter.css
+1.4 Homepage ikonen/routes Navbar.jsx
+
+5.0 Design
+5.1 Header -bild  Header.jsx
+5.2 Footer- bild  Footer.jsx
+1.7 Skapa filtreringsfält, filters:ThemeFilter.jsx/ ThemeFilter.css , RatingFilter.jsx/RatingFilter.css
+FilterDropdown.jsx/FilterDropdown.css, DifficultyFilter.jsx/ DifficultyFilter.css
+
+1.8 sökfunktion/ fler sätt att söka på SearchBar.jsx
+3.1 Rubriker på kategori sidor Category.jsx/ inalgda i API.et
+3.0 Ta bort alla teman från kategorierna flyttat de teman vi bestämde i början till till filtreringsfunktionen
 
