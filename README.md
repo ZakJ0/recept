@@ -55,15 +55,21 @@ Komponent: Comment. Visas på RecipeDetail (popupsidan) och man kan skicka in en
 1.6.2 Skapa filter på svårighetsgrad : DifficultyFilter.jsx/ DifficultyFilter.css
 
 1.6.3 Skapa filter på betyg  RatingFilter.jsx/RatingFilter.css
+
 1.4 Homepage ikonen/routes Navbar.jsx
 
 5.0 Design
+
 5.1 Header -bild  Header.jsx
+
 5.2 Footer- bild  Footer.jsx
+
 1.7 Skapa filtreringsfält, filters:ThemeFilter.jsx/ ThemeFilter.css , RatingFilter.jsx/RatingFilter.css
 FilterDropdown.jsx/FilterDropdown.css, DifficultyFilter.jsx/ DifficultyFilter.css
 
 1.8 sökfunktion/ fler sätt att söka på SearchBar.jsx
+
 3.1 Rubriker på kategori sidor Category.jsx/ inalgda i API.et
+
 3.0 Ta bort alla teman från kategorierna flyttat de teman vi bestämde i början till till filtreringsfunktionen
 
